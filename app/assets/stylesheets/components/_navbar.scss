@@ -1,6 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: transparent;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,3 +10,27 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.navbar-light .navbar-nav .nav-link{
+  color: $white;
+  font-weight: bold;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+    color: $white;
+  } &:focus {
+    opacity: 1;
+    color: $white;
+  }
+}
+
+#contact-nav {
+  color: $pop-red;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  } &:focus {
+    opacity: 1;
+  }
+}
+
