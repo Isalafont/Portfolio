@@ -1,9 +1,25 @@
-.page-header {
+// Landing Page
+
+.landing-page{
   height: 100vh;
 }
 
+.page-header {
+  height: 50vh;
+  display: block;
+  padding-top: 130px;
+  padding-left: 65px;
+}
+
 .home-title {
-  font-family: $headers-font;
+  font-family: $my-font;
   font-size: 3rem;
-  font-weight: bolder;
+}
+
+#point {
+  color: $pop-red;
+}
+
+#name {
+  color: $dark-turquoise;
 }

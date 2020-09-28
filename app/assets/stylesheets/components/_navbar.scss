@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: transparent;
+  font-family: $my-font;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,9 +12,8 @@
   width: 40px;
 }
 
-.navbar-light .navbar-nav .nav-link{
+.navbar-light .navbar-nav .nav-link {
   color: $white;
-  // font-weight: bold;
   opacity: 0.8;
   &:hover {
     opacity: 1;
@@ -33,4 +33,3 @@
     opacity: 1;
   }
 }
-
