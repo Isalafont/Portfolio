@@ -5,10 +5,10 @@
 }
 
 .page-header {
-  height: 50vh;
   display: block;
-  padding-top: 130px;
-  padding-left: 65px;
+  position: relative;
+  padding-top: 5em;
+  padding-left: 4.5em;
 }
 
 .home-title {
@@ -22,4 +22,16 @@
 
 #name {
   color: $dark-turquoise;
+}
+
+.home-info {
+  display: block;
+  position: absolute;
+  padding-top: 1em;
+  padding-left: 1em;
+  right: 30em;
+}
+
+.info {
+  font-family: $my-font;
 }
