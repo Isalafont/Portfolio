@@ -1,0 +1,48 @@
+
+@media screen and (max-width: 425px)
+ {
+  .intro-header {
+    padding-top: 4em;
+    padding-left: 3em;
+  }
+
+  .intro-title {
+  font-size: 1.6rem;
+  }
+
+  .intro-info {
+    right: 3em;
+  }
+
+  .info {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 426px) and (max-width: 767px) {
+  .intro-title {
+  font-size: 3rem;
+  }
+  .info {
+    letter-spacing: 1px;
+
+  }
+  .intro-info {
+    right: 1em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+    .intro-info {
+    right: 3em;
+    }
+    .info {
+    font-size: 1em;
+    }
+  }
+
+// @media screen and (min-width: 1388px) {
+//   .intro-info {
+//     right: 3em;
+//     }
+// }

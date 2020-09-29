@@ -36,5 +36,9 @@ module Portfolio
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Setting personnal fonts
+    # config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    # config.assets.precompile << /\.(?:svg|eot|woff|ttf)$/
   end
 end

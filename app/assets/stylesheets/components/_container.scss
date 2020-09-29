@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  position: relative;
+}
+
+// Landing Page
+
+.intro{
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  // margin: 10px;
+}
+
+.intro-header {
+  display: block;
+  position: relative;
+  padding-top: 13%;
+}
+
+.intro-title {
+  font-family: $my-font;
+  font-size: 3rem;
+}
+
+#point {
+  color: $pop-red;
+}
+
+#name {
+  color: $dark-turquoise;
+}
+
+.intro-info {
+  display: block;
+  position: absolute;
+  font-family: $my-font;
+}

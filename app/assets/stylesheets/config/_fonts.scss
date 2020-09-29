@@ -1,16 +1,31 @@
 // Import Google fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;800&family=Raleway:wght@300;400;600;800&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: 'Open Sans', "Helvetica", "sans-serif";
+$headers-font: 'Raleway', "Nunito", "sans-serif";
+$font-size-base: 16px;
+$font-weight-base: 400;
+$line-height-base: 1.5;
+// $body-font: "Work Sans", "Helvetica", "sans-serif";
+// $headers-font: "Nunito", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+@font-face {
+  font-family: 'MonumentExtended';
+  src: font-url('MonumentExtended-Regular.otf') format('truetype');
+  // src: font-url('FontFile.eot');
+  // src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
+  //      font-url('FontFile.woff') format('woff'),
+  //      font-url('FontFile.ttf') format('truetype')
+}
+
+$my-font: 'MonumentExtended';
+
+@font-face {
+  font-family: 'MonumentExtendedUltra';
+  src: font-url('MonumentExtended-Ultrabold.otf') format('truetype');
+}
+
+$my-font-bold: 'MonumentExtendedUltra';

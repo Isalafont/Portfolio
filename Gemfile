@@ -33,6 +33,7 @@ gem 'devise'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
+gem 'inline_svg', '~> 1.7', '>= 1.7.1'
 
 gem 'pundit'
 
