@@ -21,10 +21,13 @@
 
 @media screen and (min-width: 576px) and (max-width: 768px) {
   .home-title {
-  font-size: 1.6rem;
+  font-size: 2rem;
   }
   .info {
     font-size: 1em;
+  }
+  .home-info {
+    right: 3em;
   }
 
 }
@@ -33,7 +36,7 @@
 @media screen and (min-width: 768px) and (max-width: 1080px)
   {
     .home-title {
-    font-size: 1.6rem;
+    font-size: 2.5rem;
     }
     .home-info {
     right: 4em;
@@ -46,7 +49,7 @@
 @media screen and (min-width: 1080px) and (max-width: 1500px)
 {
   .home-info {
-  right: 6em;
+  right: 7em;
 ;
   }
 }
