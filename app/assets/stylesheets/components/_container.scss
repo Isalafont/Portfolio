@@ -1,17 +1,21 @@
+.container {
+  width: 100%;
+  position: relative;
+}
+
 // Landing Page
 
-.landing-page{
+.intro{
   height: 100vh;
 }
 
-.page-header {
+.intro-header {
   display: block;
   position: relative;
-  padding-top: 5em;
-  padding-left: 4.5em;
+  padding-top: 13%;
 }
 
-.home-title {
+.intro-title {
   font-family: $my-font;
   font-size: 3rem;
 }
@@ -24,14 +28,8 @@
   color: $dark-turquoise;
 }
 
-.home-info {
+.intro-info {
   display: block;
   position: absolute;
-  padding-top: 1em;
-  padding-left: 1em;
-  right: 30em;
-}
-
-.info {
   font-family: $my-font;
 }
