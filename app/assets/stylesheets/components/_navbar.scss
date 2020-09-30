@@ -1,6 +1,5 @@
 .navbar-lewagon {
   height: 70px;
-  padding: 1em 3em;
   justify-content: space-between;
   background: transparent;
   font-family: $my-font;
@@ -12,6 +11,15 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-light .navbar-brand {
+  color: white;
+  &:hover {
+    color: $pop-red;
+  } &:focus {
+    color: $pop-red;
+  }
 }
 
 .navbar-light .navbar-nav .nav-link {

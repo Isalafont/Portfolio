@@ -1,0 +1,41 @@
+.nav-home {
+  height: 40px;
+  flex-grow: 0;
+  background: transparent;
+}
+
+.nav-links {
+  list-style: none;
+  padding-left: 0px;
+  padding-top: 2vh;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-links li {
+  display: inline-block;
+  padding: 10px 10px;
+  font-size: 1.25em;
+  font-family: $my-font;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: $white;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  } &:focus {
+    opacity: 1;
+  }
+}
+
+#contact {
+  color: $pop-red;
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  } &:focus {
+    opacity: 1;
+  }
+}
