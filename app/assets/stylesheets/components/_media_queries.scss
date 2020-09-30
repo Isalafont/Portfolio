@@ -1,6 +1,13 @@
 
 @media screen and (max-width: 425px)
  {
+  .nav-links {
+    justify-content: center;
+  }
+
+  .nav-links li {
+    font-size: 1em;
+  }
   .intro-header {
     padding-top: 4em;
     padding-left: 3em;

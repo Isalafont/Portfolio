@@ -13,8 +13,6 @@ body {
   color: $white;
   text-align: left; // 3
   background-color: $primary-color; // 2
-  // background-color: $primary-color;
-  // color: $white;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -48,3 +46,8 @@ h2 {
   margin: 0.1em 0;
 }
 
+body, section {
+  .about {
+    background-color: $contrasting-color;
+  }
+}

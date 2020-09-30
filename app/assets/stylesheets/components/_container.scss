@@ -1,40 +1,25 @@
-.container {
-  width: 100%;
+.wrapper {
+  max-width: 1300px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
   position: relative;
 }
 
-// Landing Page
+// INTRO SECTION
 
 .intro{
   height: 100vh;
   width: 100%;
   position: relative;
-  // margin: 10px;
 }
 
-.intro-header {
-  display: block;
+// ABOUT SECTION
+
+.about {
+  height: 100vh;
+  width: 100%;
   position: relative;
-  padding-top: 13%;
-}
-
-.intro-title {
-  font-family: $my-font;
-  font-size: 3rem;
-}
-
-#point {
-  color: $pop-red;
-}
-
-#name {
-  color: $dark-turquoise;
-}
-
-.intro-info {
-  display: block;
-  position: absolute;
-  font-family: $my-font;
-  margin-top: 5vh;
 }
 

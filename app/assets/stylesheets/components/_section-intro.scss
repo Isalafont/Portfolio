@@ -1,0 +1,25 @@
+.intro-header {
+  display: block;
+  position: relative;
+  padding-top: 13%;
+}
+
+.intro-title {
+  font-family: $my-font;
+  font-size: 3rem;
+}
+
+#point {
+  color: $pop-red;
+}
+
+#name {
+  color: $dark-turquoise;
+}
+
+.intro-info {
+  display: block;
+  position: absolute;
+  font-family: $my-font;
+  margin-top: 5vh;
+}
