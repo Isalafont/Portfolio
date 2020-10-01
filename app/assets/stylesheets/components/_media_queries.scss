@@ -48,8 +48,18 @@
     }
   }
 
-// @media screen and (min-width: 1388px) {
-//   .intro-info {
-//     right: 3em;
-//     }
-// }
+@media screen and (min-width: 1388px) {
+  section {
+    .intro-header {
+      padding-top: 13%;
+    }
+
+    .intro-info {
+      right: 3em;
+      }
+
+    .arrow {
+      margin-top: 35vh;
+    }
+  }
+}
