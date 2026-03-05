@@ -29,7 +29,7 @@ En une heure, il y avait une PR à relire.
 
 Ce n'est pas que les bots aient codé vite. Je m'y attendais.
 
-Ce qui m'a surprise, c'est la qualité des décisions. Pas les décisions techniques — là, on est habitué. Mais les décisions de contenu. Data a lu le site de Michael Bensoussan et a identifié exactement ce qui le rendait efficace : une intro courte, un ton confiant, des projets concrets, du Graveyard pour les vieux trucs.
+Ce qui m'a surprise, c'est la qualité des décisions. Pas les décisions techniques — là, on est habitué. Mais les décisions de contenu. Data a analysé plusieurs portfolios de référence et a identifié exactement ce qui les rendait efficaces : une intro courte, un ton confiant, des projets concrets, une façon honnête de montrer aussi les anciens trucs abandonnés.
 
 Puis Data a rédigé trois articles dans ma voix.
 
