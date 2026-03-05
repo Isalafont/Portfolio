@@ -1,0 +1,19 @@
+{
+  "name": "portfolio-isa",
+  "version": "1.0.0",
+  "description": "Portfolio Isabelle - Développeuse Rails & Expert Accessibilité",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "keywords": ["portfolio", "rails", "accessibility", "rgaa"],
+  "author": "Isabelle",
+  "license": "MIT",
+  "devDependencies": {
+    "@astrojs/tailwind": "^6.2.0",
+    "astro": "^5.17.3",
+    "tailwindcss": "^4.1.0"
+  }
+}

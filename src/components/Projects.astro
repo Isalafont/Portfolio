@@ -1,0 +1,80 @@
+---
+import ProjectCard from './ProjectCard.astro';
+---
+
+<section id="projects" class="projects-section py-24 px-6 bg-gray-50">
+  <div class="container mx-auto max-w-6xl">
+    <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-16 text-center">
+      Projets
+    </h2>
+
+    <div class="projects-grid grid md:grid-cols-3 gap-8">
+      <!-- DataPass -->
+      <ProjectCard
+        icon="🏛️"
+        title="DataPass"
+        description="DataPass, c'est le service qui vous permet de profiter facilement d'habilitations conformes entre administrations et d'accéder à des données et services en accès restreint."
+        tags={['Rails', 'PostgreSQL', 'Hotwire', 'API']}
+      />
+
+      <!-- Accessibilité & RGAA -->
+      <ProjectCard
+        icon="♿"
+        title="Accessibilité & RGAA"
+        description="Services d'audit RGAA, consulting accessibilité, et formation d'équipes. Un jeudi par semaine dédié à l'accessibilité, parce que c'est un droit, pas une option."
+        tags={['RGAA', 'WCAG', 'Audits', 'Formation']}
+      />
+
+      <!-- ImmoTracker -->
+      <ProjectCard
+        icon="🏡"
+        title="ImmoTracker"
+        description="Le « Tinder de l'immobilier » - Plateforme B2B2C avec swipe UI mobile-first pour connecter acheteurs et agences immobilières."
+        tags={['Rails', 'Mapbox', 'TailwindCSS']}
+        status="En développement"
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-grid {
+    position: relative;
+  }
+
+  /* Stagger animation on scroll */
+  .projects-grid > :global(article) {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .projects-grid > :global(article:nth-child(1)) {
+    animation-delay: 0.1s;
+  }
+
+  .projects-grid > :global(article:nth-child(2)) {
+    animation-delay: 0.2s;
+  }
+
+  .projects-grid > :global(article:nth-child(3)) {
+    animation-delay: 0.3s;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .projects-grid > :global(article) {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>

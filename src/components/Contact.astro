@@ -1,0 +1,144 @@
+---
+// Contact Section - Clean & Accessible
+---
+
+<section id="contact" class="contact-section py-24 px-6 bg-white">
+  <div class="container mx-auto max-w-4xl">
+    <h2 class="text-4xl md:text-5xl font-bold text-text-primary mb-8 text-center">
+      Travaillons Ensemble
+    </h2>
+
+    <p class="text-xl text-text-secondary text-center mb-12 max-w-2xl mx-auto">
+      Disponible pour des projets Rails complexes, audits accessibilité, 
+      et consulting technique.
+    </p>
+
+    <div class="contact-content space-y-8">
+      <!-- Disponibilité -->
+      <div class="availability bg-gray-50 p-6 rounded-xl">
+        <h3 class="text-lg font-semibold text-text-primary mb-4">
+          Disponible pour:
+        </h3>
+        <ul class="space-y-2 text-text-secondary">
+          <li class="flex items-start gap-3">
+            <span class="text-accent-success text-xl" aria-hidden="true">✓</span>
+            <span>Projets Rails complexes</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent-success text-xl" aria-hidden="true">✓</span>
+            <span>Audits accessibilité RGAA</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent-success text-xl" aria-hidden="true">✓</span>
+            <span>Consulting technique</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent-success text-xl" aria-hidden="true">✓</span>
+            <span>Formation équipes</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Links -->
+      <div class="contact-links bg-gradient-to-br from-accent-primary/10 to-accent-coral/10 p-8 rounded-2xl">
+        <ul class="space-y-4">
+          <li>
+            <a 
+              href="mailto:isabelle@example.com" 
+              class="contact-link group flex items-center gap-4 text-lg hover:text-accent-primary transition-colors duration-200"
+            >
+              <span class="icon-container w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-200">
+                <span class="text-2xl" aria-hidden="true">📧</span>
+              </span>
+              <span class="font-medium underline-offset-4 group-hover:underline">
+                isabelle@example.com
+              </span>
+            </a>
+          </li>
+          
+          <li>
+            <a 
+              href="https://github.com/Isalafont" 
+              class="contact-link group flex items-center gap-4 text-lg hover:text-accent-primary transition-colors duration-200"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Voir mon profil GitHub (ouvre dans un nouvel onglet)"
+            >
+              <span class="icon-container w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-200">
+                <span class="text-2xl" aria-hidden="true">🐙</span>
+              </span>
+              <span class="font-medium underline-offset-4 group-hover:underline">
+                github.com/Isalafont
+              </span>
+            </a>
+          </li>
+          
+          <li>
+            <a 
+              href="https://www.linkedin.com/in/isabelle-lafont/" 
+              class="contact-link group flex items-center gap-4 text-lg hover:text-accent-primary transition-colors duration-200"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Voir mon profil LinkedIn (ouvre dans un nouvel onglet)"
+            >
+              <span class="icon-container w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md group-hover:shadow-lg group-hover:scale-110 transition-all duration-200">
+                <span class="text-2xl" aria-hidden="true">💼</span>
+              </span>
+              <span class="font-medium underline-offset-4 group-hover:underline">
+                linkedin.com/in/isabelle-lafont
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="cta-container text-center pt-8">
+        <a 
+          href="mailto:isabelle@example.com"
+          class="cta-button inline-block px-10 py-4 bg-accent-primary text-white rounded-lg font-semibold text-lg
+                 shadow-lg hover:shadow-xl hover:-translate-y-1 hover:shadow-accent-primary/40
+                 transition-all duration-300 ease-out
+                 focus-visible:outline-accent-primary"
+        >
+          Envoyez-moi un message
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-content {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact-content {
+      animation: none;
+      opacity: 1;
+    }
+
+    .icon-container,
+    .cta-button {
+      transition: none;
+    }
+
+    .icon-container:hover,
+    .cta-button:hover {
+      transform: none;
+    }
+  }
+</style>

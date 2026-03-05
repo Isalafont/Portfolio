@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap');
+
+:root {
+  --bg: #fafafa;
+  --text: #1a1a1a;
+  --muted: #6b7280;
+  --accent: #4F46E5;
+  --border: #e5e7eb;
+  --max-width: 640px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* Layout */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Skip to content (RGAA) */
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  z-index: 100;
+}
+.skip-to-content:focus { top: 0; }
+
+/* Focus (RGAA) */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Lora', Georgia, serif;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+p + p {
+  margin-top: 1rem;
+}

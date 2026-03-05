@@ -1,0 +1,242 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Isabelle Lafont-Bertrand – Développeuse Rails">
+
+  <div class="container">
+
+    <!-- Nav -->
+    <nav aria-label="Navigation principale">
+      <a href="/writing">Writing</a>
+    </nav>
+
+    <!-- Bio -->
+    <section class="bio" aria-labelledby="bio-heading">
+      <h1 id="bio-heading">Isabelle Lafont-Bertrand</h1>
+      <p>
+        Développeuse Rails chez <a href="https://datapass.api.gouv.fr" target="_blank" rel="noopener">DataPass</a>,
+        plateforme gouvernementale OpenSource à la DINUM.
+        Je construis des applications accessibles — et j'y pense peut-être un peu trop.
+      </p>
+      <p>
+        Actuellement obsédée par le RGAA, Ruby, et l'intersection entre IA et dev gov.
+      </p>
+      <div class="links" role="list" aria-label="Liens externes">
+        <a href="https://github.com/Isalafont" target="_blank" rel="noopener" role="listitem">GitHub</a>
+        <span aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/isabelle-lafont/" target="_blank" rel="noopener" role="listitem">LinkedIn</a>
+      </div>
+    </section>
+
+    <!-- Writing -->
+    <section class="writing" aria-labelledby="writing-heading">
+      <h2 id="writing-heading">Writing</h2>
+      <ul role="list">
+        <li>
+          <article>
+            <a href="/writing/rgaa-exigence-pas-option">
+              RGAA : l'accessibilité comme exigence, pas comme option
+            </a>
+            <span class="meta">Bientôt</span>
+          </article>
+        </li>
+        <li>
+          <article>
+            <a href="/writing/rails-convention-architecture">
+              Ce que Rails m'a appris sur l'architecture par convention
+            </a>
+            <span class="meta">Bientôt</span>
+          </article>
+        </li>
+        <li>
+          <article>
+            <a href="/writing/portfolio-code-par-des-bots">
+              Portfolio codé en 10 minutes par des bots IA — et c'est un peu flippant
+            </a>
+            <span class="meta">Bientôt</span>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projets</h2>
+      <ul role="list">
+        <li>
+          <strong>DataPass</strong> — Habilitations conformes pour les API gouvernementales.
+          <span class="stack">Rails · PostgreSQL · Hotwire</span>
+        </li>
+        <li>
+          <strong>ImmoTracker</strong> — Recherche immobilière intelligente. En développement.
+          <span class="stack">Rails · Mapbox · TailwindCSS</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>Isabelle Lafont-Bertrand</p>
+    </footer>
+
+  </div>
+
+</Layout>
+
+<style>
+  .container {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  /* Nav */
+  nav {
+    margin-bottom: 4rem;
+    font-size: 0.9rem;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+
+  nav a:hover {
+    color: var(--text);
+  }
+
+  /* Bio */
+  .bio {
+    margin-bottom: 4rem;
+  }
+
+  .bio h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .bio p {
+    color: var(--text);
+    max-width: 520px;
+  }
+
+  .links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+
+  .links span {
+    color: var(--muted);
+  }
+
+  .links a {
+    text-decoration: none;
+    color: var(--muted);
+  }
+
+  .links a:hover {
+    color: var(--accent);
+  }
+
+  /* Writing */
+  .writing {
+    margin-bottom: 3.5rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2.5rem;
+  }
+
+  .writing h2 {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  .writing ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .writing article {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .writing a {
+    text-decoration: none;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.05rem;
+    line-height: 1.4;
+  }
+
+  .writing a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .meta {
+    font-size: 0.8rem;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Projects */
+  .projects {
+    margin-bottom: 4rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2.5rem;
+  }
+
+  .projects h2 {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  .projects ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .projects li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .stack {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 0.2rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+</style>

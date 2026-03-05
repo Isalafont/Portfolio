@@ -1,0 +1,144 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  tags: string[];
+  link?: string;
+  linkText?: string;
+  status?: string;
+}
+
+const { 
+  icon, 
+  title, 
+  description, 
+  tags, 
+  link, 
+  linkText = "En savoir plus →",
+  status 
+} = Astro.props;
+---
+
+<article 
+  class="project-card group bg-white p-8 rounded-2xl border-2 border-gray-200 
+         transition-all duration-300 ease-out
+         hover:border-accent-primary hover:shadow-2xl hover:-translate-y-2
+         flex flex-col h-full"
+>
+  <!-- Icon & Status -->
+  <div class="flex items-start justify-between mb-4">
+    <div class="icon text-5xl" aria-hidden="true">
+      {icon}
+    </div>
+    {status && (
+      <span class="status-badge px-3 py-1 bg-accent-secondary/10 text-accent-secondary text-sm font-medium rounded-full">
+        {status}
+      </span>
+    )}
+  </div>
+
+  <!-- Title -->
+  <h3 class="text-2xl font-bold text-text-primary mb-3">
+    {title}
+  </h3>
+
+  <!-- Description (flex-grow pour prendre l'espace disponible) -->
+  <p class="text-text-secondary mb-6 leading-relaxed flex-grow">
+    {description}
+  </p>
+
+  <!-- Tags (toujours alignés en bas) -->
+  <div class="tags flex flex-wrap gap-2 mb-6">
+    {tags.map((tag) => (
+      <span class="tag px-3 py-1 bg-gray-100 text-sm font-mono text-text-secondary rounded-md">
+        {tag}
+      </span>
+    ))}
+  </div>
+
+  <!-- Link (toujours aligné en bas) -->
+  {link && (
+    <a 
+      href={link}
+      class="project-link inline-flex items-center gap-2 text-accent-primary font-medium
+             transition-all duration-200 hover:gap-4"
+      aria-label={`${linkText} - ${title}`}
+    >
+      <span>{linkText}</span>
+      <svg 
+        class="arrow w-5 h-5 transition-transform duration-200"
+        fill="none" 
+        stroke="currentColor" 
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path 
+          stroke-linecap="round" 
+          stroke-linejoin="round" 
+          stroke-width="2" 
+          d="M17 8l4 4m0 0l-4 4m4-4H3"
+        />
+      </svg>
+    </a>
+  )}
+</article>
+
+<style>
+  .project-card {
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+
+  /* 3D tilt effect on hover */
+  .project-card:hover {
+    transform: perspective(1000px) rotateX(2deg) rotateY(-2deg);
+  }
+
+  /* Gradient border on hover (subtle) */
+  .project-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+      135deg,
+      var(--accent-primary),
+      var(--accent-coral)
+    );
+    border-radius: 1rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+
+  .project-card:hover::before {
+    opacity: 0.1;
+  }
+
+  /* Arrow slide animation */
+  .project-link:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-card {
+      transition: none;
+      perspective: none;
+    }
+
+    .project-card:hover {
+      transform: none;
+    }
+
+    .project-link,
+    .arrow {
+      transition: none;
+    }
+
+    .project-link:hover .arrow {
+      transform: none;
+    }
+  }
+</style>
