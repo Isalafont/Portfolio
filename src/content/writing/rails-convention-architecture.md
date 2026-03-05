@@ -5,7 +5,7 @@ date: "2026-03-05"
 draft: false
 ---
 
-La première fois que j'ai ouvert une codebase Rails après deux ans de JavaScript, j'ai trouvé ça presque offensant. Où sont les fichiers de config ? Pourquoi tout est dans `app/` ? Qui a décidé que les modèles allaient là et pas ailleurs ?
+La première fois que j'ai ouvert une vraie codebase Rails, j'ai trouvé ça presque offensant. Où sont les fichiers de config ? Pourquoi tout est dans `app/` ? Qui a décidé que les modèles allaient là et pas ailleurs ?
 
 Personne. Et tout le monde en même temps.
 
