@@ -1,91 +1,48 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Nav from '../../components/Nav.astro';
 import { getCollection } from 'astro:content';
 
-const allArticles = await getCollection('writing');
-const articles = allArticles
-  .filter(a => !a.data.draft)
+const posts = (await getCollection('writing', ({ data }) => !data.draft))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 
-<Layout title="Writing – Isabelle Lafont-Bertrand">
+<Layout title="Writing – Isabelle Lafont-Bertrand" description="Articles sur Rails, l'accessibilité RGAA, et le dev gov.">
   <div class="container">
-    <Nav />
-
-    <section aria-labelledby="writing-heading">
-      <h1 id="writing-heading">Writing</h1>
-
-      <ul role="list" class="articles-list">
-        {articles.map(article => (
-          <li>
-            <article>
-              <a href={`/writing/${article.slug}`} class="article-link">
-                {article.data.title}
-              </a>
-              <span class="meta">
-                {new Date(article.data.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long' })}
-              </span>
-            </article>
-          </li>
-        ))}
-      </ul>
+    <nav>
+      <a href="/">← Isabelle Lafont-Bertrand</a>
+    </nav>
+    <section>
+      <h1>Writing</h1>
+      {posts.length === 0 ? (
+        <p class="empty">Les articles arrivent bientôt.</p>
+      ) : (
+        <ul role="list">
+          {posts.map(post => (
+            <li>
+              <article>
+                <a href={`/writing/${post.slug}`}>{post.data.title}</a>
+                <time datetime={post.data.date} class="meta">
+                  {new Date(post.data.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long' })}
+                </time>
+              </article>
+            </li>
+          ))}
+        </ul>
+      )}
     </section>
-
-    <footer>
-      <p>Isabelle Lafont-Bertrand</p>
-    </footer>
   </div>
 </Layout>
 
 <style>
-  .container { padding-bottom: 4rem; }
-
-  h1 {
-    font-size: 1.5rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .articles-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  article {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-  }
-
-  .article-link {
-    font-family: 'Lora', Georgia, serif;
-    font-size: 1.05rem;
-    line-height: 1.4;
-    text-decoration: none;
-    color: var(--text);
-  }
-
-  a.article-link:hover {
-    color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  .meta {
-    font-size: 0.8rem;
-    color: var(--muted);
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
-
-  footer {
-    margin-top: 5rem;
-    border-top: 1px solid var(--border);
-    padding-top: 2rem;
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
+  .container { padding-top: 4rem; padding-bottom: 4rem; }
+  nav { margin-bottom: 3rem; }
+  nav a { font-size: 0.85rem; color: var(--muted); text-decoration: none; }
+  nav a:hover { color: var(--text); }
+  h1 { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 500; color: var(--muted); margin-bottom: 2rem; }
+  ul { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
+  article { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; }
+  article a { font-family: 'Lora', Georgia, serif; font-size: 1.1rem; text-decoration: none; line-height: 1.4; }
+  article a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .meta { font-size: 0.8rem; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
+  .empty { color: var(--muted); font-style: italic; }
 </style>
