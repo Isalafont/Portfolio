@@ -1,0 +1,145 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('writing', ({ data }) => !data.draft);
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={`${post.data.title} – Isabelle Lafont-Bertrand`} description={post.data.description}>
+
+  <div class="container">
+
+    <nav>
+      <a href="/writing">← Writing</a>
+    </nav>
+
+    <article>
+      <header>
+        <time datetime={post.data.date} class="date">
+          {new Date(post.data.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+        <h1>{post.data.title}</h1>
+        <p class="description">{post.data.description}</p>
+      </header>
+
+      <div class="prose">
+        <Content />
+      </div>
+    </article>
+
+  </div>
+
+</Layout>
+
+<style>
+  .container {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+  }
+
+  nav {
+    margin-bottom: 3rem;
+  }
+
+  nav a {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    color: var(--text);
+  }
+
+  header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .date {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+    max-width: 520px;
+  }
+
+  .description {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 480px;
+  }
+
+  /* Prose styles */
+  .prose {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .prose :global(h2) {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.3rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose :global(p) {
+    margin-bottom: 1.4rem;
+    max-width: 580px;
+  }
+
+  .prose :global(a) {
+    color: var(--accent);
+  }
+
+  .prose :global(code) {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85em;
+    background: #f3f4f6;
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+  }
+
+  .prose :global(pre) {
+    background: #1a1a1a;
+    color: #e5e7eb;
+    padding: 1.5rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .prose :global(pre code) {
+    background: none;
+    padding: 0;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 3px solid var(--border);
+    padding-left: 1.5rem;
+    color: var(--muted);
+    font-style: italic;
+    margin: 1.5rem 0;
+  }
+</style>

@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+
+const articles = [
+  {
+    title: "RGAA : l'accessibilité comme exigence, pas comme option",
+    slug: "rgaa-exigence-pas-option",
+    date: null,
+    ready: false,
+  },
+  {
+    title: "Ce que Rails m'a appris sur l'architecture par convention",
+    slug: "rails-convention-architecture",
+    date: null,
+    ready: false,
+  },
+  {
+    title: "Portfolio codé en 10 minutes par des bots IA — et c'est un peu flippant",
+    slug: "portfolio-code-par-des-bots",
+    date: null,
+    ready: false,
+  },
+];
+---
+
+<Layout title="Writing – Isabelle Lafont-Bertrand">
+  <div class="container">
+    <Nav />
+
+    <section aria-labelledby="writing-heading">
+      <h1 id="writing-heading">Writing</h1>
+
+      <ul role="list" class="articles-list">
+        {articles.map(article => (
+          <li>
+            <article>
+              {article.ready
+                ? (
+                  <a href={`/writing/${article.slug}`} class="article-link">
+                    {article.title}
+                  </a>
+                )
+                : (
+                  <span class="article-link coming-soon">{article.title}</span>
+                )
+              }
+              <span class="meta">{article.date ?? "Bientôt"}</span>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <footer>
+      <p>Isabelle Lafont-Bertrand</p>
+    </footer>
+  </div>
+</Layout>
+
+<style>
+  .container { padding-bottom: 4rem; }
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .articles-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  article {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .article-link {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  a.article-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .coming-soon {
+    color: var(--muted);
+  }
+
+  .meta {
+    font-size: 0.8rem;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  footer {
+    margin-top: 5rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+</style>
