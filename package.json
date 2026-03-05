@@ -12,8 +12,8 @@
   "author": "Isabelle",
   "license": "MIT",
   "devDependencies": {
-    "@astrojs/tailwind": "^6.0.2",
     "astro": "^5.17.3",
-    "tailwindcss": "^4.1.0"
+    "tailwindcss": "^4.1.0",
+    "@tailwindcss/vite": "^4.1.0"
   }
 }
