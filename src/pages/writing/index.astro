@@ -3,8 +3,10 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import { getCollection } from 'astro:content';
 
-const articles = await getCollection('writing', ({ data }) => !data.draft);
-articles.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+const allArticles = await getCollection('writing');
+const articles = allArticles
+  .filter(a => !a.data.draft)
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 
 <Layout title="Writing – Isabelle Lafont-Bertrand">
@@ -66,7 +68,7 @@ articles.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).
     color: var(--text);
   }
 
-  .article-link:hover {
+  a.article-link:hover {
     color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 3px;
