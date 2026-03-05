@@ -17,7 +17,7 @@ Ce qui m'a mise mal à l'aise, c'est que c'était... bien.
 
 J'ai une configuration un peu atypique. Trois agents IA — Owly, Bender, et Data — tournent en permanence, connectés à mon serveur, accessibles via Discord. Chacun a un rôle : architecture, implémentation, recherche.
 
-Quand j'ai demandé le portfolio, Owly a commencé par poser des questions sur le style (j'ai mentionné deux portfolios de devs que j'admirais), Bender a bootstrappé le projet Astro et codé les composants, Data a analysé les sites de référence pour identifier ce qui les rendait mémorables.
+Quand j'ai demandé le portfolio, Owly a commencé par poser des questions sur le style (j'ai mentionné deux portfolios de devs que j'aimais bien), Bender a bootstrappé le projet Astro et codé les composants, Data a analysé les sites de référence pour identifier ce qui les rendait mémorables.
 
 Ils se lisaient mutuellement dans un dossier partagé. Ils ont débattu du choix des couleurs. Bender a suggéré du violet, Owly a dit que c'était trop. Ils ont tranché sans me demander.
 
