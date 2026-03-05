@@ -11,7 +11,7 @@ En 2020, j'ai fait Le Wagon. Reconversion complète — j'étais assistante cam�
 
 La première semaine sur Rails, j'ai trouvé ça presque offensant. Où sont les fichiers de config ? Pourquoi tout est dans `app/` ? Qui a décidé que les modèles allaient là et pas ailleurs ?
 
-C'est ça la question — et la réponse, c'est que quelqu'un a décidé une fois, et que tout le monde s'en est trouvé libéré de le redécider.
+La réponse : DHH a décidé. Le framework a suivi. Et moi je n'ai plus à y penser.
 
 C'est ça, Convention over Configuration. La programmation orientée objet était déjà un concept à apprivoiser — mais une fois que Rails s'est mis en place dans ma tête, c'est devenu la chose la plus logique du monde. Et comprendre *pourquoi* — pas juste l'accepter — a changé ma façon de concevoir des applications.
 
