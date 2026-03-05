@@ -5,11 +5,15 @@ date: "2026-03-05"
 draft: false
 ---
 
-La première fois que j'ai ouvert une vraie codebase Rails, j'ai trouvé ça presque offensant. Où sont les fichiers de config ? Pourquoi tout est dans `app/` ? Qui a décidé que les modèles allaient là et pas ailleurs ?
+J'ai passé des années à bidouiller le web avant de vraiment apprendre à coder. Depuis 1995, en fait — l'époque du HTML à la main, des forums, de Dreamweaver. Geek dans l'âme, mais jamais vraiment dev.
+
+En 2020, j'ai fait Le Wagon. Reconversion complète — j'étais assistante caméra dans l'audiovisuel avant ça.
+
+La première semaine sur Rails, j'ai trouvé ça presque offensant. Où sont les fichiers de config ? Pourquoi tout est dans `app/` ? Qui a décidé que les modèles allaient là et pas ailleurs ?
 
 Personne. Et tout le monde en même temps.
 
-C'est ça, Convention over Configuration. Et mettre du temps à le comprendre vraiment — pas juste l'accepter — a changé ma façon de concevoir des applications.
+C'est ça, Convention over Configuration. La programmation orientée objet était déjà un concept à apprivoiser — mais une fois que Rails s'est mis en place dans ma tête, c'est devenu la chose la plus logique du monde. Et comprendre *pourquoi* — pas juste l'accepter — a changé ma façon de concevoir des applications.
 
 ---
 
