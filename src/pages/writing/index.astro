@@ -1,27 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
+import { getCollection } from 'astro:content';
 
-const articles = [
-  {
-    title: "RGAA : l'accessibilité comme exigence, pas comme option",
-    slug: "rgaa-exigence-pas-option",
-    date: null,
-    ready: false,
-  },
-  {
-    title: "Ce que Rails m'a appris sur l'architecture par convention",
-    slug: "rails-convention-architecture",
-    date: null,
-    ready: false,
-  },
-  {
-    title: "Portfolio codé en 10 minutes par des bots IA — et c'est un peu flippant",
-    slug: "portfolio-code-par-des-bots",
-    date: null,
-    ready: false,
-  },
-];
+const articles = await getCollection('writing', ({ data }) => !data.draft);
+articles.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 
 <Layout title="Writing – Isabelle Lafont-Bertrand">
@@ -35,17 +18,12 @@ const articles = [
         {articles.map(article => (
           <li>
             <article>
-              {article.ready
-                ? (
-                  <a href={`/writing/${article.slug}`} class="article-link">
-                    {article.title}
-                  </a>
-                )
-                : (
-                  <span class="article-link coming-soon">{article.title}</span>
-                )
-              }
-              <span class="meta">{article.date ?? "Bientôt"}</span>
+              <a href={`/writing/${article.slug}`} class="article-link">
+                {article.data.title}
+              </a>
+              <span class="meta">
+                {new Date(article.data.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long' })}
+              </span>
             </article>
           </li>
         ))}
@@ -88,14 +66,10 @@ const articles = [
     color: var(--text);
   }
 
-  a.article-link:hover {
+  .article-link:hover {
     color: var(--accent);
     text-decoration: underline;
     text-underline-offset: 3px;
-  }
-
-  .coming-soon {
-    color: var(--muted);
   }
 
   .meta {
