@@ -1,182 +1,139 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Accordion from '../components/a11y/Accordion.astro';
+import AccordionItem from '../components/a11y/AccordionItem.astro';
 ---
 
-<Layout title="Services – Isabelle Lafont-Bertrand" description="Développement Rails, audit accessibilité RGAA, consulting gov tech.">
-
+<Layout title="Expertise & Services — Isabelle Lafont">
   <div class="container">
-
-    <nav>
-      <a href="/">← Isabelle Lafont-Bertrand</a>
+    
+    <nav aria-label="Navigation secondaire">
+      <a href="/">← Retour Home</a>
     </nav>
 
-    <section class="intro">
-      <h1>Travailler avec moi</h1>
-      <p>
-        Je suis développeuse Rails freelance, disponible pour des missions ponctuelles
-        ou des collaborations longue durée. Mon terrain : applications web à fort impact,
-        accessibilité RGAA, projets gouvernementaux.
+    <header class="page-header">
+      <p class="overline">Expertise</p>
+      <h1>Services Accessibilité</h1>
+      <p class="intro">
+        J'accompagne les équipes produit et les institutions dans la création d'interfaces inclusives, 
+        de l'audit initial au déploiement de composants haute-performance.
       </p>
-      <p>
-        Je travaille avec des équipes qui ont des contraintes réelles — délais, conformité,
-        diversité des utilisateurs. L'accessibilité n'est pas un bonus dans mon travail,
-        c'est une exigence de départ.
-      </p>
+    </header>
+
+    <section class="services-list" aria-label="Liste des prestations">
+      <Accordion>
+        <AccordionItem title="Audit & Diagnostic RGAA" id="audit">
+          <p>Analyse complète de vos interfaces selon le référentiel général d'amélioration de l'accessibilité.</p>
+          <ul>
+            <li>Audit de conformité (grille de test officielle)</li>
+            <li>Rapport détaillé avec recommandations techniques exploitables</li>
+            <li>Priorisation des corrections (Roadmap de mise en conformité)</li>
+          </ul>
+        </AccordionItem>
+
+        <AccordionItem title="Développement & Remédiation" id="dev">
+          <p>Mise en œuvre des corrections techniques et création de composants sur-mesure.</p>
+          <ul>
+            <li>Intégration de patterns ARIA complexes (Modales, Combobox, Sliders)</li>
+            <li>Optimisation des parcours Utilisateur (Focus management, Screen readers)</li>
+            <li>Standardisation de votre Design System accessible</li>
+          </ul>
+        </AccordionItem>
+
+        <AccordionItem title="Accompagnement Stratégique" id="conseil">
+          <p>Parce que l'accessibilité est un sujet transverse, j'aide vos équipes à monter en compétence.</p>
+          <ul>
+            <li>Formation technique pour les développeurs (Ruby, Rails, JS)</li>
+            <li>Ateliers de sensibilisation pour les Product Owners et Designers</li>
+            <li>Mise en place de tests automatisés d'accessibilité (CI/CD)</li>
+          </ul>
+        </AccordionItem>
+      </Accordion>
     </section>
 
-    <section class="services">
-
-      <div class="service">
-        <h2>Développement Rails</h2>
-        <p>
-          Conception et développement d'applications Ruby on Rails.
-          Architecture, modélisation, API, Hotwire, background jobs.
-          J'interviens aussi bien sur du greenfield que sur des codebases existantes.
-        </p>
-        <ul>
-          <li>Ruby on Rails · PostgreSQL · Hotwire</li>
-          <li>Architecture & refactoring</li>
-          <li>Intégrations API (FranceConnect, API Entreprise, API Particulier…)</li>
-          <li>Code review & mentoring</li>
-        </ul>
-      </div>
-
-      <div class="service">
-        <h2>Audit & conformité RGAA</h2>
-        <p>
-          Audit d'accessibilité selon le Référentiel Général d'Amélioration de l'Accessibilité.
-          Je fournis un rapport détaillé, priorisé, avec des recommandations actionnables —
-          pas juste une liste de critères à cocher.
-        </p>
-        <ul>
-          <li>Audit RGAA AA complet</li>
-          <li>Tests lecteurs d'écran</li>
-          <li>Rapport avec corrections priorisées</li>
-          <li>Accompagnement équipe dev</li>
-        </ul>
-      </div>
-
-      <div class="service">
-        <h2>Consulting gov tech</h2>
-        <p>
-          J'ai travaillé sur des projets OpenSource à la DINUM, avec les contraintes
-          du service public : conformité, interopérabilité, diversité des usagers.
-          Je peux aider des équipes qui naviguent dans cet environnement.
-        </p>
-        <ul>
-          <li>Projets BetaGouv / DINUM</li>
-          <li>API gouvernementales</li>
-          <li>Accessibilité dans les marchés publics</li>
-        </ul>
-      </div>
-
-    </section>
-
-    <section class="contact">
-      <h2>Me contacter</h2>
-      <p>
-        Vous avez un projet qui correspond ?
-        <a href="https://www.linkedin.com/in/isabelle-lafont/" target="_blank" rel="noopener">LinkedIn</a>
-        ou directement sur
-        <a href="https://github.com/Isalafont" target="_blank" rel="noopener">GitHub</a>.
-      </p>
+    <section class="cta-section">
+      <h2>Collaborer sur un projet ?</h2>
+      <p>Vous avez un besoin urgent de mise en conformité ou vous lancez un nouveau produit inclusif ?</p>
+      <a href="mailto:isabelle@example.com" class="button">Discuter de votre projet</a>
     </section>
 
   </div>
-
 </Layout>
 
 <style>
-  .container {
-    padding-top: 4rem;
-    padding-bottom: 6rem;
-  }
-
   nav {
     margin-bottom: 3rem;
   }
 
   nav a {
-    font-size: 0.85rem;
-    color: var(--muted);
     text-decoration: none;
-  }
-
-  nav a:hover { color: var(--text); }
-
-  /* Intro */
-  .intro {
-    margin-bottom: 4rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .intro h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .intro p {
-    max-width: 520px;
-    color: var(--text);
-  }
-
-  /* Services */
-  .services {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    margin-bottom: 4rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .service h2 {
-    font-size: 1.1rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .service p {
-    max-width: 500px;
-    margin-bottom: 1rem;
-    color: var(--text);
-    line-height: 1.7;
-  }
-
-  .service ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-
-  .service ul li {
-    font-size: 0.85rem;
     color: var(--muted);
-    padding-left: 1rem;
-    position: relative;
+    font-size: 0.9rem;
+    font-weight: 700;
   }
 
-  .service ul li::before {
-    content: "–";
-    position: absolute;
-    left: 0;
-    color: var(--muted);
+  .page-header {
+    margin-bottom: 4rem;
   }
 
-  /* Contact */
-  .contact h2 {
-    font-size: 0.8rem;
-    letter-spacing: 0.08em;
+  .overline {
+    color: var(--accent);
     text-transform: uppercase;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    color: var(--muted);
-    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
   }
 
-  .contact p {
-    font-size: 1rem;
-    line-height: 1.7;
+  h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+  }
+
+  .intro {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 60ch;
+  }
+
+  .services-list {
+    margin-bottom: 4rem;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-section {
+    margin-top: 6rem;
+    padding: 3rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    margin-top: 0;
+  }
+
+  .button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 1rem 2rem;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    font-weight: 700;
+  }
+
+  .button:hover {
+    opacity: 0.8;
   }
 </style>

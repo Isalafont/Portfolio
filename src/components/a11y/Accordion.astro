@@ -1,0 +1,52 @@
+---
+---
+<div class="accordion" data-accordion>
+  <slot />
+</div>
+
+<script>
+  function setupAccordions() {
+    const accordions = document.querySelectorAll('[data-accordion]');
+    
+    accordions.forEach(accordion => {
+      const triggers = accordion.querySelectorAll('.accordion-trigger');
+      
+      triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+          const panelId = trigger.getAttribute('aria-controls');
+          const panel = document.getElementById(panelId!);
+
+          // Toggle current
+          trigger.setAttribute('aria-expanded', (!isExpanded).toString());
+          if (panel) {
+            panel.hidden = isExpanded;
+          }
+        });
+
+        // Keyboard navigation (optional enhancement for space/enter is native for buttons, 
+        // but adding arrow navigation is a nice A11y touch)
+        trigger.addEventListener('keydown', (event: any) => {
+          if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+            event.preventDefault();
+            const index = Array.from(triggers).indexOf(trigger);
+            const direction = event.key === 'ArrowDown' ? 1 : -1;
+            const nextIndex = (index + direction + triggers.length) % triggers.length;
+            (triggers[nextIndex] as HTMLElement).focus();
+          }
+        });
+      });
+    });
+  }
+
+  // Handle Astro page transitions if enabled later
+  setupAccordions();
+  document.addEventListener('astro:after-swap', setupAccordions);
+</script>
+
+<style>
+  .accordion {
+    border-top: 1px solid var(--border);
+    margin: 2rem 0;
+  }
+</style>

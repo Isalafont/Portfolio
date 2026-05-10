@@ -12,7 +12,7 @@
   "author": "Isabelle",
   "license": "MIT",
   "devDependencies": {
-    "astro": "^5.17.3",
+    "astro": "^6.0.0",
     "tailwindcss": "^4.1.0",
     "@tailwindcss/vite": "^4.1.0"
   }

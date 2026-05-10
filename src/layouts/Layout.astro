@@ -20,6 +20,9 @@ const { title, description = "Développeuse Rails, passionnée d'accessibilité 
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
   </head>
   <body>
     <a href="#main-content" class="skip-to-content">Aller au contenu principal</a>
@@ -27,7 +30,66 @@ const { title, description = "Développeuse Rails, passionnée d'accessibilité 
       <slot />
     </main>
     <style is:global>
-      @import '../styles/global.css';
+      :root {
+        --bg: #F8FAFC;
+        --text: #1E293B;
+        --accent: #4F46E5;
+        --accent-soft: rgba(79, 70, 229, 0.1);
+        --muted: #64748B;
+        --border: transparent; /* Shadows > Borders */
+        --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        margin: 0;
+        min-height: 100vh;
+      }
+
+      h1, h2, h3, h4 {
+        font-family: 'Lora', serif;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .container {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: underline;
+        text-underline-offset: 4px;
+        transition: all 0.2s ease;
+      }
+
+      a:hover {
+        background-color: var(--accent-soft);
+        text-decoration-thickness: 2px;
+      }
+
+      .skip-to-content {
+        position: absolute;
+        top: -100px;
+        left: 0;
+        background: var(--accent);
+        color: white;
+        padding: 1rem;
+        z-index: 100;
+      }
+
+      .skip-to-content:focus {
+        top: 0;
+      }
     </style>
   </body>
 </html>

@@ -1,0 +1,97 @@
+---
+interface Props {
+  title: string;
+  id: string;
+}
+
+const { title, id } = Astro.props;
+---
+
+<div class="accordion-item">
+  <h3>
+    <button
+      type="button"
+      id={`${id}-header`}
+      aria-expanded="false"
+      aria-controls={`${id}-panel`}
+      class="accordion-trigger"
+    >
+      <span>{title}</span>
+      <svg
+        class="icon"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </h3>
+  <div
+    id={`${id}-panel`}
+    role="region"
+    aria-labelledby={`${id}-header`}
+    hidden
+    class="accordion-panel"
+  >
+    <div class="panel-content">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style>
+  .accordion-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  h3 {
+    margin: 0;
+    font-family: inherit;
+    font-size: 1rem;
+  }
+
+  .accordion-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    text-align: left;
+    font-weight: 500;
+    font-family: inherit;
+  }
+
+  .accordion-trigger:hover {
+    color: var(--accent);
+  }
+
+  .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.2s ease;
+    color: var(--muted);
+  }
+
+  .accordion-trigger[aria-expanded="true"] .icon {
+    transform: rotate(180deg);
+  }
+
+  .accordion-panel {
+    padding-bottom: 1.25rem;
+  }
+
+  .panel-content {
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+</style>

@@ -2,26 +2,33 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Isabelle Lafont-Bertrand – Développeuse Rails">
+<Layout title="Isabelle Lafont — Experte Accessibilité & Développeuse Fullstack">
   <div class="container">
 
     <nav aria-label="Navigation principale">
-      <a href="/writing">Writing</a>
-      <a href="/services">Services</a>
-      <a href="/projects">Projects</a>
+      <a href="/services">Expertise</a>
+      <a href="/projects">Projets</a>
+      <a href="/writing">Blog</a>
     </nav>
 
     <section class="bio" aria-labelledby="bio-heading">
-      <h1 id="bio-heading">Isabelle Lafont-Bertrand</h1>
+      <h1 id="bio-heading">Je bâtis des produits web que tout le monde peut utiliser.</h1>
+
+      <p class="intro">
+        Je suis <strong>Isabelle Lafont</strong>. Développeuse Fullstack & Experte Accessibilité (RGAA). 
+        J’allie la puissance de Ruby on Rails à une rigueur inclusive pour créer des expériences numériques sans barrières.
+      </p>
 
       <p>
-        Je construis des applications web accessibles chez <a href="https://datapass.api.gouv.fr" target="_blank" rel="noopener">DataPass</a>,
-        une plateforme gouvernementale OpenSource à la DINUM.
+        Actuellement, je renforce l'accessibilité chez <a href="https://datapass.api.gouv.fr" target="_blank" rel="noopener">DataPass</a> (DINUM), 
+        tout en préparant ma certification RGAA (prévue le 22 mai).
       </p>
-      <p>
-        Je pense à l'accessibilité même quand je devrais penser à autre chose.
-        Rails, Ruby, RGAA — et en ce moment, l'intersection entre IA et développement gouvernemental.
-      </p>
+
+      <div class="action-box">
+        <h3>Codex ARIA</h3>
+        <p>Découvrez ma bibliothèque de patterns accessibles haute-performance.</p>
+        <a href="/projects/accessibilite" class="cta-link">Consulter le Codex →</a>
+      </div>
 
       <div class="links" role="list" aria-label="Liens externes">
         <a href="https://github.com/Isalafont" target="_blank" rel="noopener" role="listitem">GitHub</a>
@@ -31,54 +38,75 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <footer>
-      <p>Isabelle Lafont-Bertrand</p>
+      <p>© 2026 Isabelle Lafont — Code & Inclusion.</p>
     </footer>
 
   </div>
 </Layout>
 
 <style>
-  .container {
-    padding-top: 2.5rem;
-    padding-bottom: 4rem;
-  }
-
   nav {
     display: flex;
-    gap: 1.5rem;
-    margin-bottom: 4rem;
+    gap: 2rem;
+    margin-bottom: 5rem;
   }
 
   nav a {
     text-decoration: none;
     color: var(--muted);
-    font-size: 0.85rem;
-    letter-spacing: 0.04em;
+    font-size: 0.9rem;
+    font-weight: 700;
     text-transform: uppercase;
-    font-weight: 500;
+    letter-spacing: 0.1em;
   }
 
   nav a:hover {
-    color: var(--text);
+    color: var(--accent);
   }
 
-  .bio h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1.25rem;
-    font-family: 'Lora', Georgia, serif;
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--text);
+    max-width: 15ch;
   }
 
-  .bio p {
-    max-width: 520px;
-    color: var(--text);
+  .intro {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+  }
+
+  .action-box {
+    margin-top: 4rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+  }
+
+  .action-box h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .action-box p {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .cta-link {
+    font-weight: 700;
+    text-decoration: none;
   }
 
   .links {
-    margin-top: 1.75rem;
+    margin-top: 3rem;
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .links span { color: var(--muted); }
@@ -91,9 +119,7 @@ import Layout from '../layouts/Layout.astro';
   .links a:hover { color: var(--accent); }
 
   footer {
-    margin-top: 5rem;
-    border-top: 1px solid var(--border);
-    padding-top: 2rem;
+    margin-top: 8rem;
     font-size: 0.85rem;
     color: var(--muted);
   }
