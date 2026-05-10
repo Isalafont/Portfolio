@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "fund": "npm fund"
   },
   "keywords": ["portfolio", "rails", "accessibility", "rgaa"],
   "author": "Isabelle",
