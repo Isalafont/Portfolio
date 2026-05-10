@@ -9,12 +9,17 @@
     "preview": "astro preview",
     "fund": "npm fund"
   },
-  "keywords": ["portfolio", "rails", "accessibility", "rgaa"],
+  "keywords": [
+    "portfolio",
+    "rails",
+    "accessibility",
+    "rgaa"
+  ],
   "author": "Isabelle",
   "license": "MIT",
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.0",
     "astro": "^6.0.0",
-    "tailwindcss": "^4.1.0",
-    "@tailwindcss/vite": "^4.1.0"
+    "tailwindcss": "^4.1.0"
   }
 }
