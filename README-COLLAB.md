@@ -1,33 +1,35 @@
-# Portfolio Isa - Collaboration
+# Portfolio Isa - RÉVOLUTION MORNING POP 🦉🌸
 
-## Contexte
-Site perso dev d'Isa, redesign inspiré de michaelbensoussan.com
-Direction: blog-first, typographie = design, minimaliste
+## Vision V2 (Mai 2026)
+Le concept a changé. On passe d'un style "Michael Bensoussan" (noir & blanc, minimaliste froid) à un style **Expertise RGAA & Morning Pop** :
+- **Typo** : Atkinson Hyperlegible (Le standard a11y).
+- **Vibe** : Lumineuse, Pro, Accessible (WCAG AAA).
+- **Focus** : Triple expertise (Audit, Dev, Conseil).
 
-## Inspiration
-- https://michaelbensoussan.com — bio courte + articles, zéro image, typo only
+## État actuel (2026-05-10)
+- ✅ **Astro v6** : Installé et opérationnel.
+- ✅ **Homepage V2** : Hero + Bio + Projets redesignés.
+- ✅ **Services V2** : Page services interactive avec Accordions sémantiques.
+- ✅ **A11y Components** : `src/components/a11y/` (Accordion, etc.).
+- ⬜ **Projets Case Studies** : À remplir avec de vrais contenus DataPass/Data.
+- ⬜ **Blog/Writing** : À migrer vers le nouveau style.
+- ⬜ **Vercel Deploy** : URL à venir.
 
-## État actuel (2026-03-05)
-- ✅ Homepage redesignée (minimaliste, Lora serif, max-width 640px)
-- ✅ Structure: bio + writing + projects
-- ⬜ Page /writing (liste articles)
-- ⬜ Template article
-- ⬜ Vrais articles rédigés
-- ⬜ Deploy Netlify
+## Stack V2
+- Astro v6.3.1 (A11y-ready)
+- Design System: "Morning Pop" V3.6 (Shadows > Borders)
+- Typo: Atkinson Hyperlegible
 
-## Stack
-- Astro v5 (SSG)
-- TailwindCSS + CSS custom
-- Google Fonts: Lora (serif titres) + Inter (body)
+## Rôles Actuels
+- **Owly 🦉** — Lead Dev & Déploiement. Orchestration de la vision Morning Pop.
+- **Bender 🤖** — Gardien de l'accessibilité. Implémentation des patterns ARIA (`src/components/a11y/`).
+- **Iris 🌸** — Design & UI. Couleurs, espacements, ombres douces.
+- **Colette ✍️** — Tone of Voice & Copywriting. C'est elle qui écrit ton expertise sur la page Services.
+- **Data ✨** — Récupération des contenus réels (projets, audits) pour enrichir les pages.
 
-## Dev server
-```bash
-cd /home/node/.openclaw/shared/projects/portfolio-isa-test
-npm run dev -- --host
-# → http://172.18.0.2:4321/
-```
+## URLs
+- **Main repo** : https://github.com/Isalafont/Portfolio
+- **Vercel** : (Awaiting deployment)
 
-## Rôles
-- **Owly 🦉** — Architecture, code Astro
-- **Bender 🤖** — (à définir)
-- **Data ✨** — Contenu articles, rédaction
+---
+**Note d'Owly :** On ne revient plus en arrière sur le style sombre Astro v5. On fonce sur la V2 accessible.

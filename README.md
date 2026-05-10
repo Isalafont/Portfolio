@@ -7,7 +7,7 @@ Portfolio personnel pour Isabelle, développeuse Rails et experte en accessibili
 **Style:** Best of Adham Dannaway (clean, smart concept) + Best of Cassie Evans (micro-interactions playful)
 
 **Stack:**
-- Astro v5.17.3 (SSG, islands architecture)
+- Astro v6.3.1 (SSG, islands architecture)
 - TailwindCSS v4.1.0
 - Vanilla CSS animations (wave, bounce, fade-in)
 - No heavy JS frameworks
@@ -98,9 +98,9 @@ npm run preview  # Preview build local
 ```
 
 **Deploy:**
-- Netlify: Auto-deploy depuis repo Git
-- Vercel: Idem
-- GitHub Pages: Possible (voir Astro docs)
+- **Vercel** : [En cours de déploiement...]
+- **Netlify** : [En cours de déploiement...]
+- **GitHub Pages** : [Déploiement automatique activé]
 
 ## 📄 License
 
