@@ -2,7 +2,7 @@
 title: "Comment une facture de 37€ en 48h m'a forcée à repenser toute mon infra IA"
 description: "Mes agents ont brûlé 37€ pendant que je dormais. Diagnostic, migration multi-modèles via OpenRouter, et -90% sur la facture mensuelle."
 date: "2026-04-09"
-draft: true
+draft: false
 ---
 
 Lundi 7 avril au matin, j'ouvre mon dashboard Anthropic et je vois 37€ déjà consommés. Pas sur deux semaines. Sur deux jours de week-end.
