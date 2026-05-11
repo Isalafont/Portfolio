@@ -3,8 +3,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://isalafont.github.io',
-  base: '/Portfolio',
+  site: 'https://portfolio-phi-eight-exfc5pmroi.vercel.app',
+  // base: '/Portfolio',
   vite: {
     plugins: [tailwindcss()],
   },
