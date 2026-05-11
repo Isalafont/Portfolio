@@ -7,7 +7,7 @@ draft: false
 
 Il y a quelques semaines, j'ai ouvert un channel Discord et j'ai tapé : "les bots, faites-moi un portfolio."
 
-Dix minutes plus tard, j'avais un site Astro avec un hero animé, une section projets, des composants accessibles RGAA, et un score Lighthouse de 97. Je n'avais pas écrit une ligne de code.
+Dix minutes plus tard, j'avais un premier site fonctionnel. En une heure, il y avait une PR complète à relire. J'avais un site Astro avec un hero animé, une section projets, des composants accessibles RGAA, et un score Lighthouse de 97. Je n'avais pas écrit une ligne de code.
 
 Ce qui m'a mise mal à l'aise, c'est que c'était... bien.
 

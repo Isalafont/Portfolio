@@ -1,7 +1,7 @@
 ---
 title: "Ce que Rails m'a appris sur l'architecture par convention"
 description: "Convention over Configuration, ce n'est pas une limitation. C'est une décision d'architecture — et comprendre pourquoi change tout."
-date: "2026-03-05"
+date: "2026-03-18"
 draft: false
 ---
 
@@ -52,6 +52,8 @@ Quand quelque chose ne marche pas comme prévu, le débogage peut être opaque. 
 Et pour les architectures vraiment non-standard, Rails peut résister. Si tu veux faire quelque chose que le framework n'a pas anticipé, tu passes du temps à contourner des conventions qui ne s'appliquent pas à ton cas.
 
 Ce n'est pas un défaut. C'est un trade-off. Rails optimise pour le cas courant, pas pour tous les cas.
+
+Rails, j'ai mis du temps à l'apprendre. Maintenant je ne peux plus m'en passer.
 
 ---
 
