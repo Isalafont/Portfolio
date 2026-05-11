@@ -2,7 +2,7 @@
 title: "Passer une certif RGAA quand on l'applique déjà depuis 2 ans"
 description: "J'applique le RGAA sur DataPass depuis deux ans. Alors pourquoi passer une certification ? Ce que la pratique m'a appris — et ce qu'elle ne m'a pas appris."
 date: "2026-05-11"
-draft: true
+draft: false
 ---
 
 J'applique le RGAA sur DataPass depuis deux ans. Tests clavier, revues PR, composants conçus accessibles dès le départ. Alors pourquoi passer une certification ?
