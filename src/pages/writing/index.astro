@@ -20,7 +20,7 @@ const posts = (await getCollection('writing', ({ data }) => !data.draft))
           {posts.map(post => (
             <li>
               <article>
-                <a href={`/writing/${post.slug}`}>{post.data.title}</a>
+                <a href={`/writing/${post.id}`}>{post.data.title}</a>
                 <time datetime={post.data.date} class="meta">
                   {new Date(post.data.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long' })}
                 </time>
