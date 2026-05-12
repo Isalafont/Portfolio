@@ -2,7 +2,7 @@
 const { question, options, correctAnswer, explanation } = Astro.props;
 ---
 
-<div class="rgaa-challenger-card p-6 bg-white border-2 border-blue-100 rounded-xl shadow-sm mb-6" data-correct={correctAnswer}>
+<div class="rgaa-challenger-card p-6 bg-white border-2 border-blue-100 rounded-xl shadow-sm mb-6" data-correct={correctAnswer} data-explanation={explanation}>
   <h3 class="text-lg font-bold text-blue-900 mb-4">{question}</h3>
   
   <div class="grid gap-3 mb-4">
@@ -16,9 +16,9 @@ const { question, options, correctAnswer, explanation } = Astro.props;
     ))}
   </div>
 
-  <div class="quiz-feedback hidden mt-4 p-4 rounded-lg">
+  <div class="quiz-feedback hidden mt-4 p-4 rounded-lg bg-gray-50 border border-gray-200">
     <p class="feedback-text font-bold mb-2"></p>
-    <p class="explanation-text text-sm text-gray-700">{explanation}</p>
+    <p class="explanation-text text-sm text-gray-700"></p>
   </div>
 </div>
 
@@ -30,29 +30,29 @@ const { question, options, correctAnswer, explanation } = Astro.props;
       const options = card.querySelectorAll('.quiz-option');
       const feedback = card.querySelector('.quiz-feedback');
       const feedbackText = card.querySelector('.feedback-text');
+      const explanationText = card.querySelector('.explanation-text');
       const correctAnswer = parseInt(card.getAttribute('data-correct'));
+      const explanation = card.getAttribute('data-explanation'); // Read from data attribute
 
       options.forEach(option => {
         option.addEventListener('click', () => {
           const selectedIndex = parseInt(option.getAttribute('data-index'));
           
-          // Disable all options
           options.forEach(opt => opt.disabled = true);
           
           feedback.classList.remove('hidden');
+          explanationText.textContent = explanation; // Set text only on click
           
           if (selectedIndex === correctAnswer) {
             option.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
-            feedback.classList.add('bg-green-50', 'border', 'border-green-200');
+            feedback.classList.add('bg-green-50', 'border-green-200');
             feedbackText.textContent = "✅ Correct !";
             feedbackText.classList.add('text-green-700');
           } else {
             option.classList.add('bg-red-100', 'border-red-500', 'text-red-800');
-            feedback.classList.add('bg-red-50', 'border', 'border-red-200');
+            feedback.classList.add('bg-red-50', 'border-red-200');
             feedbackText.textContent = "❌ Incorrect";
             feedbackText.classList.add('text-red-700');
-            
-            // Highlight the correct one
             options[correctAnswer].classList.add('ring-2', 'ring-green-500');
           }
         });
