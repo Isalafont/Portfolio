@@ -17,7 +17,10 @@ const { question, options, correctAnswer, explanation } = Astro.props;
   </div>
 
   <div class="quiz-feedback hidden mt-4 p-4 rounded-lg bg-gray-50 border border-gray-200">
-    <p class="feedback-text font-bold mb-2"></p>
+    <p class="feedback-text font-bold mb-2">
+      <span class="status-icon" role="img"></span>
+      <span class="status-message"></span>
+    </p>
     <p class="explanation-text text-sm text-gray-700"></p>
   </div>
 </div>
@@ -29,10 +32,11 @@ const { question, options, correctAnswer, explanation } = Astro.props;
     cards.forEach(card => {
       const options = card.querySelectorAll('.quiz-option');
       const feedback = card.querySelector('.quiz-feedback');
-      const feedbackText = card.querySelector('.feedback-text');
+      const statusIcon = card.querySelector('.status-icon');
+      const statusMessage = card.querySelector('.status-message');
       const explanationText = card.querySelector('.explanation-text');
       const correctAnswer = parseInt(card.getAttribute('data-correct'));
-      const explanation = card.getAttribute('data-explanation'); // Read from data attribute
+      const explanation = card.getAttribute('data-explanation');
 
       options.forEach(option => {
         option.addEventListener('click', () => {
@@ -41,18 +45,24 @@ const { question, options, correctAnswer, explanation } = Astro.props;
           options.forEach(opt => opt.disabled = true);
           
           feedback.classList.remove('hidden');
-          explanationText.textContent = explanation; // Set text only on click
+          explanationText.textContent = explanation;
           
           if (selectedIndex === correctAnswer) {
             option.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
             feedback.classList.add('bg-green-50', 'border-green-200');
-            feedbackText.textContent = "✅ Correct !";
-            feedbackText.classList.add('text-green-700');
+            
+            statusIcon.textContent = "✅";
+            statusIcon.setAttribute('aria-label', 'Réussi');
+            statusMessage.textContent = " Correct !";
+            statusMessage.classList.add('text-green-700');
           } else {
             option.classList.add('bg-red-100', 'border-red-500', 'text-red-800');
             feedback.classList.add('bg-red-50', 'border-red-200');
-            feedbackText.textContent = "❌ Incorrect";
-            feedbackText.classList.add('text-red-700');
+            
+            statusIcon.textContent = "❌";
+            statusIcon.setAttribute('aria-label', 'Échec');
+            statusMessage.textContent = " Incorrect";
+            statusMessage.classList.add('text-red-700');
             options[correctAnswer].classList.add('ring-2', 'ring-green-500');
           }
         });
