@@ -1,12 +1,13 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import QuizCard from '../../components/a11y/QuizCard.astro';
 
 const tickets = [
   {
     id: 'DP-1525',
     title: 'Mise en conformité API Entreprise',
     status: '🚧 In Progress',
-    note: "Audit des pages publiques et corrections prioritaires."
+    note: "Audit des pages publiques et corrections prioritaires (en cours)."
   },
   {
     id: 'DP-1668',
@@ -22,21 +23,39 @@ const tickets = [
   }
 ];
 
-const patterns = [
-  { name: 'Contrastes (1.4.3)', status: 'Vérifié' },
-  { name: 'Navigation Clavier (2.1.1)', status: 'En cours' },
-  { name: 'Focus Visible (2.4.7)', status: 'Vérifié' },
-  { name: 'Attributs ARIA (4.1.2)', status: 'Audit' }
+const quizzes = [
+  {
+    question: "Dans un formulaire, quelle technique est obligatoire pour rendre un champ de saisie accessible (Critère 11.2) ?",
+    options: [
+      "Utiliser un attribut placeholder descriptif",
+      "Utiliser un attribut title uniquement",
+      "Utiliser un élément <label> visible et lié par for/id",
+      "Mettre une icône descriptive à côté du champ"
+    ],
+    correctAnswer: 2,
+    explanation: "Le placeholder n'est pas suffisant car il disparaît dès la saisie. Un label visible est indispensable pour la mémoire de travail et la navigation vocale."
+  },
+  {
+    question: "Pour un tableau de données complexe avec plusieurs niveaux d'en-têtes, comment lie-t-on les cellules aux en-têtes ?",
+    options: [
+      "Avec scope=\"col\" partout",
+      "Avec les attributs id et headers",
+      "Avec une balise <caption> descriptive",
+      "C'est impossible, il faut scinder le tableau"
+    ],
+    correctAnswer: 1,
+    explanation: "Les attributs id sur les <th> et headers sur les <td> sont obligatoires pour les relations complexes que scope ne peut pas gérer seul."
+  }
 ];
 ---
 
 <Layout title="Codex ARIA - Accessibilité RGAA">
-	<main class="container mx-auto px-4 py-8">
+	<main class="container mx-auto px-4 py-8 max-w-4xl">
 		<h1 class="text-4xl font-bold mb-4">Codex ARIA — Accessibilité</h1>
-		<p class="text-xl mb-8">Mémoire technique et suivi de conformité RGAA 4.1 pour DataPass et Portfolio.</p>
+		<p class="text-xl mb-8 text-gray-600">Mémoire technique et suivi de conformité RGAA 4.1 pour DataPass et Portfolio.</p>
 
 		<section class="mb-12">
-			<h2 class="text-2xl font-semibold mb-4">📘 Tickets DataPass & Études de Cas</h2>
+			<h2 class="text-2xl font-semibold mb-6">📘 Tickets DataPass & Études de Cas</h2>
 			<div class="grid gap-4">
 				{tickets.map(ticket => (
 					<div class="border p-4 rounded-lg shadow-sm border-gray-200 bg-white">
@@ -45,7 +64,7 @@ const patterns = [
 								<span class="text-xs font-mono bg-blue-100 text-blue-800 px-2 py-1 rounded">{ticket.id}</span>
 								<h3 class="text-lg font-bold mt-2">{ticket.title}</h3>
 							</div>
-							<span class="text-sm font-medium">{ticket.status}</span>
+							<span class="text-sm font-medium px-2 py-1 rounded bg-gray-100">{ticket.status}</span>
 						</div>
 						<p class="text-gray-600 mt-2">{ticket.note}</p>
 					</div>
@@ -54,20 +73,19 @@ const patterns = [
 		</section>
 
 		<section class="mb-12">
-			<h2 class="text-2xl font-semibold mb-4">⚖️ État des Lieux RGAA</h2>
-			<ul class="list-disc pl-5 space-y-2">
-				{patterns.map(p => (
-					<li>
-						<strong>{p.name}</strong> : <span class="italic">{p.status}</span>
-					</li>
+			<h2 class="text-2xl font-semibold mb-6 italic text-blue-800">🚀 RGAA Challenger (Quiz Interactif)</h2>
+			<p class="mb-6 text-gray-600">Entraînez-vous sur des cas réels RGAA rencontrés lors de mes missions.</p>
+			
+			<div class="space-y-6">
+				{quizzes.map(quiz => (
+					<QuizCard {...quiz} />
 				))}
-			</ul>
+			</div>
 		</section>
 
-		<section class="bg-gray-50 p-6 rounded-xl border border-blue-200">
-			<h2 class="text-2xl font-semibold mb-4">🚀 RGAA Challenger (Quiz)</h2>
-			<p>Module interactif en cours de développement par l'équipe (Owly, Bender, Iris).</p>
-			<p class="mt-4 text-sm text-gray-500">Prévu pour : Soirée du 12 Mai 2026.</p>
+		<section class="bg-blue-50 p-6 rounded-xl border border-blue-200">
+			<h2 class="text-xl font-semibold mb-2">Prochaine étape</h2>
+			<p>Publication de l'article d'expertise complet avec démonstration de l'Inspecteur A11y.</p>
 		</section>
 	</main>
 </Layout>
