@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const tickets = [
+  {
+    id: 'DP-1525',
+    title: 'Mise en conformité API Entreprise',
+    status: '🚧 In Progress',
+    note: "Audit des pages publiques et corrections prioritaires."
+  },
+  {
+    id: 'DP-1668',
+    title: 'Audit page Accessibilité',
+    status: '✅ Complété',
+    note: "10 critères non conformes identifiés et documentés."
+  },
+  {
+    id: 'DP-1280',
+    title: 'Accessibilité Clavier (Sauvegarder)',
+    status: '📋 Todo',
+    note: "Optimisation de l'interaction clavier sur le bouton principal."
+  }
+];
+
+const patterns = [
+  { name: 'Contrastes (1.4.3)', status: 'Vérifié' },
+  { name: 'Navigation Clavier (2.1.1)', status: 'En cours' },
+  { name: 'Focus Visible (2.4.7)', status: 'Vérifié' },
+  { name: 'Attributs ARIA (4.1.2)', status: 'Audit' }
+];
+---
+
+<Layout title="Codex ARIA - Accessibilité RGAA">
+	<main class="container mx-auto px-4 py-8">
+		<h1 class="text-4xl font-bold mb-4">Codex ARIA — Accessibilité</h1>
+		<p class="text-xl mb-8">Mémoire technique et suivi de conformité RGAA 4.1 pour DataPass et Portfolio.</p>
+
+		<section class="mb-12">
+			<h2 class="text-2xl font-semibold mb-4">📘 Tickets DataPass & Études de Cas</h2>
+			<div class="grid gap-4">
+				{tickets.map(ticket => (
+					<div class="border p-4 rounded-lg shadow-sm border-gray-200 bg-white">
+						<div class="flex justify-between items-start">
+							<div>
+								<span class="text-xs font-mono bg-blue-100 text-blue-800 px-2 py-1 rounded">{ticket.id}</span>
+								<h3 class="text-lg font-bold mt-2">{ticket.title}</h3>
+							</div>
+							<span class="text-sm font-medium">{ticket.status}</span>
+						</div>
+						<p class="text-gray-600 mt-2">{ticket.note}</p>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<section class="mb-12">
+			<h2 class="text-2xl font-semibold mb-4">⚖️ État des Lieux RGAA</h2>
+			<ul class="list-disc pl-5 space-y-2">
+				{patterns.map(p => (
+					<li>
+						<strong>{p.name}</strong> : <span class="italic">{p.status}</span>
+					</li>
+				))}
+			</ul>
+		</section>
+
+		<section class="bg-gray-50 p-6 rounded-xl border border-blue-200">
+			<h2 class="text-2xl font-semibold mb-4">🚀 RGAA Challenger (Quiz)</h2>
+			<p>Module interactif en cours de développement par l'équipe (Owly, Bender, Iris).</p>
+			<p class="mt-4 text-sm text-gray-500">Prévu pour : Soirée du 12 Mai 2026.</p>
+		</section>
+	</main>
+</Layout>
