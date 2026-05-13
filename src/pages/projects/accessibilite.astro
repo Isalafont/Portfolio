@@ -2,6 +2,27 @@
 import Layout from '../../layouts/Layout.astro';
 import QuizCard from '../../components/a11y/QuizCard.astro';
 
+const tickets = [
+  {
+    id: 'DP-1525',
+    title: 'Mise en conformité API Entreprise',
+    status: '🚧 In Progress',
+    note: "Audit des pages publiques et corrections prioritaires (en cours)."
+  },
+  {
+    id: 'DP-1668',
+    title: 'Audit page Accessibilité',
+    status: '✅ Complété',
+    note: "10 critères non conformes identifiés et documentés."
+  },
+  {
+    id: 'DP-1280',
+    title: 'Accessibilité Clavier (Sauvegarder)',
+    status: '📋 Todo',
+    note: "Optimisation de l'interaction clavier sur le bouton principal."
+  }
+];
+
 const quizzes = [
   {
     question: "Dans un formulaire, quelle technique est obligatoire pour rendre un champ de saisie accessible (Critère 11.2) ?",
@@ -39,74 +60,43 @@ const quizzes = [
 ];
 ---
 
-<Layout title="RGAA Masterclass — Le Challenger">
-	<main class="min-h-screen bg-[#FBFBFD] text-[#1D1D1F]">
-		<div class="container mx-auto px-6 py-20 max-w-3xl">
-			
-			<header class="text-center mb-16 space-y-4">
-				<h1 class="text-5xl md:text-6xl font-extrabold tracking-tight">RGAA <span class="text-blue-600">Quest</span>.</h1>
-				<p class="text-xl md:text-2xl font-medium text-gray-500 max-w-2xl mx-auto">
-					Maîtrisez l'accessibilité par la pratique. Une expérience conçue pour tester vos limites RGAA.
-				</p>
-			</header>
+<Layout title="Codex ARIA - Accessibilité RGAA">
+	<main class="container mx-auto px-4 py-8 max-w-4xl">
+		<h1 class="text-4xl font-bold mb-4">Codex ARIA — Accessibilité</h1>
+		<p class="text-xl mb-8 text-gray-600">Mémoire technique et suivi de conformité RGAA 4.1 pour DataPass et Portfolio.</p>
 
-			<div class="space-y-12">
-				{quizzes.map((quiz, index) => (
-					<div class="relative group">
-						<div class="absolute -left-12 top-0 hidden md:flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-400 font-bold text-sm border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-all">
-							{index + 1}
+		<section class="mb-12">
+			<h2 class="text-2xl font-semibold mb-6">📘 Tickets DataPass & Études de Cas</h2>
+			<div class="grid gap-4">
+				{tickets.map(ticket => (
+					<div class="border p-4 rounded-lg shadow-sm border-gray-200 bg-white">
+						<div class="flex justify-between items-start">
+							<div>
+								<span class="text-xs font-mono bg-blue-100 text-blue-800 px-2 py-1 rounded">{ticket.id}</span>
+								<h3 class="text-lg font-bold mt-2">{ticket.title}</h3>
+							</div>
+							<span class="text-sm font-medium px-2 py-1 rounded bg-gray-100">{ticket.status}</span>
 						</div>
-						<QuizCard {...quiz} />
+						<p class="text-gray-600 mt-2">{ticket.note}</p>
 					</div>
 				))}
 			</div>
+		</section>
 
-			<footer class="mt-24 text-center border-t border-gray-100 pt-12">
-				<div class="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">
-					<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-					<span class="text-sm font-semibold">22 questions supplémentaires en cours de forge par Data ✨</span>
-				</div>
-				<p class="mt-8 text-gray-400 text-sm">Design & Inclusion par Isabelle Lafont.</p>
-			</footer>
+		<section class="mb-12">
+			<h2 class="text-2xl font-semibold mb-6 italic text-blue-800">🚀 RGAA Challenger (Quiz Interactif)</h2>
+			<p class="mb-6 text-gray-600">Entraînez-vous sur des cas réels RGAA rencontrés lors de mes missions.</p>
+			
+			<div class="space-y-6">
+				{quizzes.map(quiz => (
+					<QuizCard {...quiz} />
+				))}
+			</div>
+		</section>
 
-		</div>
+		<section class="bg-blue-50 p-6 rounded-xl border border-blue-200">
+			<h2 class="text-xl font-semibold mb-2">Prochaine étape</h2>
+			<p>Publication de l'article d'expertise complet avec démonstration de l'Inspecteur A11y.</p>
+		</section>
 	</main>
 </Layout>
-
-<style is:global>
-	/* Polissage style Apple pour les QuizCards */
-	.rgaa-challenger-card {
-		background: rgba(255, 255, 255, 0.8) !important;
-		backdrop-filter: blur(20px) !important;
-		border: 1px solid rgba(0, 0, 0, 0.05) !important;
-		border-radius: 28px !important;
-		padding: 40px !important;
-		box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04) !important;
-		transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease !important;
-	}
-
-	.quiz-option {
-		background: #F5F5F7 !important;
-		border: none !important;
-		border-radius: 18px !important;
-		padding: 20px 24px !important;
-		font-weight: 600 !important;
-		color: #1D1D1F !important;
-		margin-bottom: 4px !important;
-	}
-
-	.quiz-option:hover {
-		background: #E8E8ED !important;
-		transform: scale(1.02);
-	}
-
-	.quiz-option:active {
-		transform: scale(0.98);
-	}
-
-	.quiz-feedback {
-		border-radius: 20px !important;
-		margin-top: 24px !important;
-		padding: 24px !important;
-	}
-</style>
