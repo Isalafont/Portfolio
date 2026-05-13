@@ -6,10 +6,10 @@ const posts = (await getCollection('writing', ({ data }) => !data.draft))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 
-<Layout title="Writing – Isabelle Lafont-Bertrand" description="Articles sur Rails, l'accessibilité RGAA, et le dev gov.">
+<Layout title="Writing – Isabelle Lafont" description="Articles sur Rails, l'accessibilité RGAA, et le dev gov.">
   <div class="container">
     <nav>
-      <a href="/">← Isabelle Lafont-Bertrand</a>
+      <a href="/">← Isabelle Lafont</a>
     </nav>
     <section>
       <h1>Writing</h1>
