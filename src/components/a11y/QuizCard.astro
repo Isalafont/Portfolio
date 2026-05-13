@@ -2,75 +2,108 @@
 const { question, options, correctAnswer, explanation } = Astro.props;
 ---
 
-<div class="rgaa-challenger-card p-6 bg-white border-2 border-blue-100 rounded-xl shadow-sm mb-6" data-correct={correctAnswer} data-explanation={explanation}>
-  <h3 class="text-lg font-bold text-blue-900 mb-4">{question}</h3>
+<div class="quest-card opacity-0 translate-y-4 transition-all duration-700 ease-out p-10 bg-white/80 backdrop-blur-xl rounded-[32px] shadow-[0_20px_50px_rgba(0,0,0,0.04)] border border-black/[0.03] mb-12" data-correct={correctAnswer} data-explanation={explanation}>
+  <h3 class="text-2xl font-bold text-[#1D1D1F] mb-8 leading-tight">{question}</h3>
   
-  <div class="grid gap-3 mb-4">
+  <div class="grid gap-4 mb-2">
     {options.map((option, index) => (
       <button 
-        class="quiz-option w-full text-left p-3 rounded-lg border border-gray-200 hover:border-blue-400 hover:bg-blue-50 transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        class="quest-option group relative w-full text-left p-5 rounded-2xl bg-[#F5F5F7] hover:bg-[#E8E8ED] transition-all duration-200 focus:ring-2 focus:ring-blue-500 focus:outline-none"
         data-index={index}
       >
-        {option}
+        <div class="flex items-center justify-between">
+            <span class="text-lg font-semibold pr-4">{option}</span>
+            <div class="status-circle w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center transition-all duration-300">
+                <span class="check-icon opacity-0 text-white text-xs font-bold">✓</span>
+            </div>
+        </div>
       </button>
     ))}
   </div>
 
-  <div class="quiz-feedback hidden mt-4 p-4 rounded-lg bg-gray-50 border border-gray-200">
-    <p class="feedback-text font-bold mb-2">
-      <span class="status-icon" role="img"></span>
-      <span class="status-message"></span>
-    </p>
-    <p class="explanation-text text-sm text-gray-700"></p>
+  <div class="quest-feedback invisible opacity-0 max-h-0 overflow-hidden transition-all duration-500 ease-in-out mt-8 p-6 rounded-2xl border">
+    <div class="flex items-start gap-4">
+        <div class="feedback-icon text-2xl pt-0.5"></div>
+        <div>
+            <p class="feedback-title font-bold text-lg mb-1"></p>
+            <p class="explanation-text text-[#424245] leading-relaxed"></p>
+        </div>
+    </div>
   </div>
 </div>
 
 <script>
-  function setupQuiz() {
-    const cards = document.querySelectorAll('.rgaa-challenger-card');
+  function setupQuest() {
+    const cards = document.querySelectorAll('.quest-card');
     
+    // Observer pour l'apparition en fondu (style Apple)
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-4');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+        }
+      });
+    }, { threshold: 0.1 });
+
     cards.forEach(card => {
-      const options = card.querySelectorAll('.quiz-option');
-      const feedback = card.querySelector('.quiz-feedback');
-      const statusIcon = card.querySelector('.status-icon');
-      const statusMessage = card.querySelector('.status-message');
+      observer.observe(card);
+      const options = card.querySelectorAll('.quest-option');
+      const feedback = card.querySelector('.quest-feedback');
+      const feedbackIcon = card.querySelector('.feedback-icon');
+      const feedbackTitle = card.querySelector('.feedback-title');
       const explanationText = card.querySelector('.explanation-text');
       const correctAnswer = parseInt(card.getAttribute('data-correct'));
       const explanation = card.getAttribute('data-explanation');
 
       options.forEach(option => {
         option.addEventListener('click', () => {
+          if (card.classList.contains('answered')) return;
+          
           const selectedIndex = parseInt(option.getAttribute('data-index'));
+          card.classList.add('answered');
           
-          options.forEach(opt => opt.disabled = true);
+          options.forEach(opt => opt.setAttribute('disabled', 'true'));
           
-          feedback.classList.remove('hidden');
+          const circle = option.querySelector('.status-circle');
+          const check = option.querySelector('.check-icon');
+
+          // Affichage du feedback avec animation Apple
+          feedback.classList.remove('invisible');
+          feedback.classList.replace('opacity-0', 'opacity-100');
+          feedback.classList.replace('max-h-0', 'max-h-[500px]');
           explanationText.textContent = explanation;
           
           if (selectedIndex === correctAnswer) {
-            option.classList.add('bg-green-100', 'border-green-500', 'text-green-800');
-            feedback.classList.add('bg-green-50', 'border-green-200');
+            option.classList.replace('bg-[#F5F5F7]', 'bg-[#E7F5ED]');
+            circle.classList.replace('border-gray-300', 'bg-[#34C759]');
+            circle.style.borderColor = "#34C759";
+            check.classList.replace('opacity-0', 'opacity-100');
             
-            statusIcon.textContent = "✅";
-            statusIcon.setAttribute('aria-label', 'Réussi');
-            statusMessage.textContent = " Correct !";
-            statusMessage.classList.add('text-green-700');
+            feedback.classList.add('bg-[#F2FAF5]', 'border-[#D1EBD9]');
+            feedbackIcon.textContent = "✨";
+            feedbackTitle.textContent = "C'est bien !";
+            feedbackTitle.style.color = "#1E6B3B";
           } else {
-            option.classList.add('bg-red-100', 'border-red-500', 'text-red-800');
-            feedback.classList.add('bg-red-50', 'border-red-200');
+            option.classList.replace('bg-[#F5F5F7]', 'bg-[#FDF0F1]');
+            circle.classList.replace('border-gray-300', 'bg-[#FF3B30]');
+            circle.style.borderColor = "#FF3B30";
+            check.textContent = "✕";
+            check.classList.replace('opacity-0', 'opacity-100');
             
-            statusIcon.textContent = "❌";
-            statusIcon.setAttribute('aria-label', 'Échec');
-            statusMessage.textContent = " Incorrect";
-            statusMessage.classList.add('text-red-700');
-            options[correctAnswer].classList.add('ring-2', 'ring-green-500');
+            feedback.classList.add('bg-[#FFF5F5]', 'border-[#FEE2E2]');
+            feedbackIcon.textContent = "💡";
+            feedbackTitle.textContent = "Pas tout à fait...";
+            feedbackTitle.style.color = "#9B1C1C";
+            
+            // Highlight la bonne réponse discrètement
+            options[correctAnswer].classList.add('ring-2', 'ring-[#34C759]', 'ring-offset-2');
           }
         });
       });
     });
   }
 
-  // Support Astro view transitions
-  setupQuiz();
-  document.addEventListener('astro:after-swap', setupQuiz);
+  setupQuest();
+  document.addEventListener('astro:after-swap', setupQuest);
 </script>

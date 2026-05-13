@@ -1,48 +1,44 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('writing', ({ data }) => !data.draft))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 ---
 
-<Layout title="Writing – Isabelle Lafont" description="Articles sur Rails, l'accessibilité RGAA, et le dev gov.">
-  <div class="container">
-    <nav>
-      <a href="/">← Isabelle Lafont</a>
-    </nav>
+<Layout title="Writing – Isabelle Lafont" description="Articles sur le développement Rails et l'accessibilité RGAA.">
+  <div class="container py-24">
+    <header class="mb-16">
+      <nav class="mb-8">
+        <a href="/" class="text-sm font-bold uppercase tracking-widest no-underline opacity-50 hover:opacity-100 transition-opacity">← Isabelle Lafont</a>
+      </nav>
+      <h1 class="text-6xl font-extrabold tracking-tighter">Writing</h1>
+    </header>
+
     <section>
-      <h1>Writing</h1>
       {posts.length === 0 ? (
-        <p class="empty">Les articles arrivent bientôt.</p>
+        <p class="text-gray-400">Les articles arrivent bientôt.</p>
       ) : (
-        <ul role="list">
+        <ul role="list" class="space-y-12 list-none p-0">
           {posts.map(post => (
-            <li>
+            <li class="group">
               <article>
-                <a href={`/writing/${post.id}`}>{post.data.title}</a>
-                <time datetime={post.data.date} class="meta">
-                  {new Date(post.data.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long' })}
+                <time datetime={post.data.date} class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2">
+                  {new Date(post.data.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </time>
+                <h2 class="text-3xl font-bold mb-3">
+                  <a href={`/writing/${post.id}`} class="no-underline hover:text-blue-600 transition-colors">{post.data.title}</a>
+                </h2>
+                <p class="text-lg text-gray-500 max-w-2xl">{post.data.description}</p>
               </article>
             </li>
           ))}
         </ul>
       )}
     </section>
+
+    <footer class="mt-32 opacity-20 text-xs font-bold uppercase tracking-widest">
+      <p>© 2026 Isabelle Lafont — Code & Inclusion.</p>
+    </footer>
   </div>
 </Layout>
-
-<style>
-  .container { padding-top: 4rem; padding-bottom: 4rem; }
-  nav { margin-bottom: 3rem; }
-  nav a { font-size: 0.85rem; color: var(--muted); text-decoration: none; }
-  nav a:hover { color: var(--text); }
-  h1 { font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Inter', sans-serif; font-weight: 500; color: var(--muted); margin-bottom: 2rem; }
-  ul { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
-  article { display: flex; justify-content: space-between; align-items: baseline; gap: 1.5rem; }
-  article a { font-family: 'Lora', Georgia, serif; font-size: 1.1rem; text-decoration: none; line-height: 1.4; }
-  article a:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-  .meta { font-size: 0.8rem; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
-  .empty { color: var(--muted); font-style: italic; }
-</style>

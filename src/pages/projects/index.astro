@@ -1,6 +1,6 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Nav from '../../components/Nav.astro';
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
 
 const projects = [
   {
@@ -8,14 +8,22 @@ const projects = [
     url: "https://datapass.api.gouv.fr",
     description: "Plateforme gouvernementale d'habilitations pour les API publiques françaises. OpenSource, à la DINUM.",
     stack: ["Rails", "PostgreSQL", "Hotwire"],
-    status: "En production",
+    status: "Active",
+  },
+  {
+    name: "RGAA Quest",
+    url: "/projects/accessibilite",
+    description: "Challenge interactif pour tester son expertise sur les critères RGAA 4.1. Un simulateur ludique pour la certification.",
+    stack: ["Astro 6", "TailwindCSS", "A11y"],
+    status: "Nouveau ✨",
+    internal: true
   },
   {
     name: "ImmoTracker",
     url: null,
     description: "Outil de recherche immobilière intelligente. Agrège les annonces, alerte sur les nouvelles opportunités.",
     stack: ["Rails", "Mapbox", "TailwindCSS"],
-    status: "En développement",
+    status: "Dev",
   },
 ];
 ---
@@ -25,24 +33,24 @@ const projects = [
     <Nav />
 
     <section aria-labelledby="projects-heading">
-      <h1 id="projects-heading">Projets</h1>
+      <h1 id="projects-heading" class="mb-16 text-3xl font-extrabold tracking-tight">Projets Prioritaires</h1>
 
       <ul role="list" class="projects-list">
         {projects.map(project => (
           <li>
-            <article>
-              <div class="project-header">
-                <h2>
+            <article class="group relative bg-white p-8 rounded-[24px] shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] transition-all duration-300 border border-black/[0.03]">
+              <div class="project-header mb-6">
+                <h2 class="text-xl font-bold">
                   {project.url
-                    ? <a href={project.url} target="_blank" rel="noopener">{project.name}</a>
+                    ? <a href={project.url} class="after:absolute after:inset-0" target={project.internal ? undefined : "_blank"} rel={project.internal ? undefined : "noopener"}>{project.name}</a>
                     : project.name
                   }
                 </h2>
-                <span class="status">{project.status}</span>
+                <span class="status bg-gray-50 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-gray-500">{project.status}</span>
               </div>
-              <p>{project.description}</p>
+              <p class="text-gray-600 leading-relaxed mb-6 max-w-md">{project.description}</p>
               <ul class="stack" role="list" aria-label="Stack technique">
-                {project.stack.map(tech => <li>{tech}</li>)}
+                {project.stack.map(tech => <li class="text-[0.7rem] font-bold uppercase tracking-widest text-blue-500/70">{tech}</li>)}
               </ul>
             </article>
           </li>
@@ -50,82 +58,28 @@ const projects = [
       </ul>
     </section>
 
-    <footer>
-      <p>Isabelle Lafont-Bertrand</p>
+    <footer class="mt-32 text-center opacity-30">
+      <p>Isabelle Lafont — Code & Inclusion</p>
     </footer>
   </div>
 </Layout>
 
 <style>
-  .container { padding-bottom: 4rem; }
-
-  h1 {
-    font-size: 1.5rem;
-    margin-bottom: 2.5rem;
-  }
-
   .projects-list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
-  }
-
-  .project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.75rem;
-  }
-
-  h2 {
-    font-size: 1.1rem;
+    gap: 2rem;
   }
 
   h2 a {
     text-decoration: none;
   }
 
-  h2 a:hover {
-    color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-  }
-
-  .status {
-    font-size: 0.8rem;
-    color: var(--muted);
-    font-family: 'Inter', sans-serif;
-  }
-
-  p {
-    color: var(--text);
-    font-size: 0.95rem;
-    max-width: 480px;
-    margin-bottom: 0.75rem;
-  }
-
   .stack {
     list-style: none;
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
     flex-wrap: wrap;
-  }
-
-  .stack li {
-    font-size: 0.78rem;
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--muted);
-    background: var(--border);
-    padding: 0.2rem 0.5rem;
-    border-radius: 3px;
-  }
-
-  footer {
-    margin-top: 5rem;
-    border-top: 1px solid var(--border);
-    padding-top: 2rem;
-    font-size: 0.85rem;
-    color: var(--muted);
   }
 </style>

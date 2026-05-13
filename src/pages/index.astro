@@ -1,126 +1,94 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('writing', ({ data }) => !data.draft))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .slice(0, 3);
 ---
 
 <Layout title="Isabelle Lafont — Experte Accessibilité & Développeuse Fullstack">
-  <div class="container">
-
-    <nav aria-label="Navigation principale">
-      <a href="/services/">Expertise</a>
-      <a href="/projects/">Projets</a>
-      <a href="/writing/">Blog</a>
-    </nav>
-
-    <section class="bio" aria-labelledby="bio-heading">
-      <h1 id="bio-heading">Je bâtis des produits web que tout le monde peut utiliser.</h1>
-
-      <p class="intro">
-        Je suis <strong>Isabelle Lafont</strong>. Développeuse Fullstack & Experte Accessibilité (RGAA). 
-        J’allie la puissance de Ruby on Rails à une rigueur inclusive pour créer des expériences numériques sans barrières.
-      </p>
-
-      <p>
-        Actuellement, je renforce l'accessibilité chez <a href="https://datapass.api.gouv.fr" target="_blank" rel="noopener">DataPass</a> (DINUM), 
-        tout en préparant ma certification RGAA (prévue le 22 mai).
-      </p>
-
-      <div class="action-box">
-        <h3>Codex ARIA</h3>
-        <p>Découvrez ma bibliothèque de patterns accessibles haute-performance.</p>
-        <a href="/projects/accessibilite/" class="cta-link">Consulter le Codex →</a>
+  <div class="container py-24">
+    
+    <header class="mb-32">
+      <div class="flex items-center gap-6 mb-12 animate-fade-in">
+        <div class="w-20 h-20 bg-gradient-to-tr from-blue-600 to-indigo-400 rounded-3xl rotate-6 shadow-xl"></div>
+        <div>
+           <div class="text-xs font-bold uppercase tracking-[0.2em] text-blue-600 mb-1">Portfolio v2.6</div>
+           <h2 class="text-xl font-bold">Isabelle Lafont</h2>
+        </div>
       </div>
+      
+      <h1 class="text-[clamp(2.5rem,8vw,5rem)] font-extrabold tracking-tighter leading-[0.9] mb-12">
+        Je code pour <span class="text-blue-600">tous</span>. 
+        Sans exception.
+      </h1>
+      
+      <p class="text-2xl md:text-3xl font-medium text-gray-500 max-w-2xl leading-tight mb-12">
+        Consultante experte Accessibilité & Développeuse Fullstack Rails chez <span class="text-black">Matignon (DataPass)</span>.
+      </p>
 
-      <div class="links" role="list" aria-label="Liens externes">
-        <a href="https://github.com/Isalafont" target="_blank" rel="noopener" role="listitem">GitHub</a>
-        <span aria-hidden="true">·</span>
-        <a href="https://www.linkedin.com/in/isabelle-lafont/" target="_blank" rel="noopener" role="listitem">LinkedIn</a>
+      <div class="flex flex-wrap gap-4" role="list">
+        <a href="https://github.com/Isalafont" target="_blank" rel="noopener" class="px-6 py-3 rounded-full bg-black text-white no-underline font-bold text-sm tracking-wide hover:scale-105 transition-transform">GitHub</a>
+        <a href="https://www.linkedin.com/in/isabelle-lafont/" target="_blank" rel="noopener" class="px-6 py-3 rounded-full bg-white border border-gray-200 text-black no-underline font-bold text-sm tracking-wide hover:shadow-lg transition-all">LinkedIn</a>
+      </div>
+    </header>
+
+    <section class="mb-32" aria-labelledby="quest-heading">
+      <div class="bg-gradient-to-br from-[#6366f1] via-[#4f46e5] to-[#3730a3] p-1 scale-100 hover:scale-[1.02] transition-transform duration-500 rounded-[40px] shadow-2xl">
+        <div class="bg-white/95 backdrop-blur-md p-10 md:p-16 rounded-[38px] relative overflow-hidden">
+          <div class="relative z-10 max-w-xl">
+            <div class="inline-block px-4 py-1.5 mb-8 rounded-full bg-blue-100 text-blue-700 text-[10px] font-bold tracking-widest uppercase">Expérience Interactive</div>
+            <h2 id="quest-heading" class="text-5xl font-extrabold tracking-tight mb-6 leading-none">RGAA <span class="text-blue-600">Quest</span>.</h2>
+            <p class="text-xl text-gray-500 font-medium mb-10 leading-snug">
+              Un simulateur ultra-réaliste pour défier les critères 4.1. Prêt pour la certification ?
+            </p>
+            <a href="/projects/accessibilite" class="inline-flex items-center space-x-3 bg-blue-600 text-white px-8 py-4 rounded-2xl no-underline font-bold text-lg hover:bg-blue-700 transition-colors shadow-lg shadow-blue-500/20">
+               <span>Lancer le challenge</span>
+               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+            </a>
+          </div>
+          <!-- Abstract iOS-style glass shapes -->
+          <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
+          <div class="absolute right-10 top-10 w-48 h-48 bg-purple-600/10 rounded-full blur-2xl"></div>
+        </div>
       </div>
     </section>
 
-    <footer>
-      <p>© 2026 Isabelle Lafont — Code & Inclusion.</p>
-    </footer>
+    <section class="mb-40">
+      <div class="flex justify-between items-baseline mb-12">
+        <h2 class="text-4xl font-extrabold tracking-tight italic">Writing</h2>
+        <a href="/writing" class="font-bold text-blue-600 no-underline hover:underline">Tout lire →</a>
+      </div>
+      <div class="space-y-16">
+        {posts.map(post => (
+          <article class="group">
+            <time datetime={post.data.date} class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3 block">{new Date(post.data.date).toLocaleDateString('fr-FR', { year: 'numeric', month: 'long' })}</time>
+            <h3 class="text-3xl font-extrabold mb-4 group-hover:text-blue-600 transition-colors leading-tight">
+              <a href={`/writing/${post.id}`} class="no-underline">{post.data.title}</a>
+            </h3>
+            <p class="text-xl text-gray-500 max-w-2xl leading-snug">{post.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
 
+    <footer class="border-t border-gray-100 pt-16 flex flex-col md:flex-row justify-between items-center gap-8 text-[#86868B]">
+      <p class="font-bold text-sm tracking-widest uppercase">Isabelle Lafont — Code & Inclusion</p>
+      <div class="flex gap-8 font-bold text-sm uppercase tracking-widest">
+        <a href="/projects" class="no-underline hover:text-black hover:underline underline-offset-8">Projets</a>
+        <a href="mailto:isa@isalafont.fr" class="no-underline hover:text-black hover:underline underline-offset-8">Contact</a>
+      </div>
+    </footer>
   </div>
 </Layout>
 
 <style>
-  nav {
-    display: flex;
-    gap: 2rem;
-    margin-bottom: 5rem;
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  nav a {
-    text-decoration: none;
-    color: var(--muted);
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  nav a:hover {
-    color: var(--accent);
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--text);
-    max-width: 15ch;
-  }
-
-  .intro {
-    font-size: 1.25rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-  }
-
-  .action-box {
-    margin-top: 4rem;
-    padding: 2rem;
-    background: white;
-    border-radius: 1rem;
-    box-shadow: var(--shadow);
-  }
-
-  .action-box h3 {
-    margin-top: 0;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .action-box p {
-    color: var(--muted);
-    margin-bottom: 1.5rem;
-  }
-
-  .cta-link {
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .links {
-    margin-top: 3rem;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    font-size: 1rem;
-  }
-
-  .links span { color: var(--muted); }
-
-  .links a {
-    text-decoration: none;
-    color: var(--muted);
-  }
-
-  .links a:hover { color: var(--accent); }
-
-  footer {
-    margin-top: 8rem;
-    font-size: 0.85rem;
-    color: var(--muted);
+  .animate-fade-in {
+    animation: fade-in 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   }
 </style>
