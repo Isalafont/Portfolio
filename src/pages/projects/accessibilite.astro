@@ -2,104 +2,111 @@
 import Layout from '../../layouts/Layout.astro';
 import QuizCard from '../../components/a11y/QuizCard.astro';
 
-// On garde nos 3 questions actuelles, Data en rajoutera 22
 const quizzes = [
   {
-    question: "Quelle technique est impérative pour rendre un champ de saisie accessible aux lecteurs d'écran ?",
+    question: "Dans un formulaire, quelle technique est obligatoire pour rendre un champ de saisie accessible (Critère 11.2) ?",
     options: [
-      "Un placeholder explicite",
-      "Un attribut title descriptif",
-      "Un élément <label> lié par for/id",
-      "Une icône informative"
+      "Utiliser un attribut placeholder descriptif",
+      "Utiliser un attribut title uniquement",
+      "Utiliser un élément <label> visible et lié par for/id",
+      "Mettre une icône descriptive à côté du champ"
     ],
     correctAnswer: 2,
-    explanation: "Le placeholder n'est pas une alternative au label car il disparaît dès la saisie. Un label lié permet aussi d'agrandir la zone de clic."
+    explanation: "Le placeholder n'est pas suffisant car il disparaît dès la saisie. Un label visible est indispensable pour la mémoire de travail et la navigation vocale."
   },
   {
-    question: "Pour un tableau de données complexe, quelle méthode garantit une lecture logique des en-têtes ?",
+    question: "Pour un tableau de données complexe avec plusieurs niveaux d'en-têtes, quelle méthode est indispensable (Critère 1.6) ?",
     options: [
-      "Utiliser scope=\"col\" partout",
+      "Utiliser scope=\"col\" sur tous les en-têtes",
       "Utiliser le couple id / headers",
-      "Scinder le tableau en deux",
-      "Ne rien faire, c'est géré nativement"
+      "Doubler le tableau en version texte",
+      "Utiliser aria-label sur chaque cellule"
     ],
     correctAnswer: 1,
-    explanation: "Dès que le tableau possède des en-têtes imbriqués ou intermédiaires, les attributs id et headers sont les seuls à garantir une relation sans ambiguïté."
+    explanation: "Dès que le tableau possède des en-têtes qui ne s'appliquent pas à toute la ligne ou colonne, scope est insuffisant. id et headers permettent de lier précisément chaque cellule à ses parents."
   },
   {
-    question: "Quelle est la syntaxe exacte pour lier une cellule à trois en-têtes : th1, th2 et th3 ?",
+    question: "Quelle est la syntaxe correcte pour lier une cellule <td> à 3 en-têtes (th1, th2, th3) via l'attribut headers ?",
     options: [
       "headers=\"th1; th2; th3\"",
       "headers=\"th1, th2, th3\"",
-      "headers=\"th1 th2 th3\"",
+      "headers=\"th1 th2 th3\" (espace simple)",
       "headers=\"[th1][th2][th3]\""
     ],
     correctAnswer: 2,
-    explanation: "Les IDs doivent être listés et séparés par des espaces simples uniquement. L'ordre recommandé va du parent le plus éloigné au plus proche."
+    explanation: "Les IDs dans l'attribut headers doivent être séparés par des ESPACES simples uniquement. Les virgules ou points-virgules rendent la relation invalide pour les lecteurs d'écran."
   }
 ];
 ---
 
-<Layout title="RGAA Quest — Maîtrisez l'accessibilité">
-	<main class="min-h-screen bg-[#FBFBFD] text-[#1D1D1F] overflow-x-hidden">
-		
-		<!-- Hero Section Apple Style -->
-		<section class="relative pt-32 pb-20 px-6 overflow-hidden">
-			<div class="container mx-auto max-w-5xl text-center">
-				<div class="inline-block px-4 py-1.5 mb-6 rounded-full bg-blue-100 text-blue-700 text-xs font-bold tracking-widest uppercase animate-fade-in">
-					Challenger Interactif
-				</div>
-				<h1 class="text-6xl md:text-8xl font-extrabold tracking-tight mb-8 bg-gradient-to-b from-[#1D1D1F] to-[#424245] bg-clip-text text-transparent">
-					RGAA <span class="text-blue-600">Quest</span>.
-				</h1>
-				<p class="text-2xl md:text-3xl font-medium text-[#86868B] max-w-3xl mx-auto leading-tight">
-					Prêt à défier les critères ? Testez votre expertise accessibilité avec notre simulateur ultra-réaliste.
-				</p>
-			</div>
+<Layout title="RGAA Masterclass — Le Challenger">
+	<main class="min-h-screen bg-[#FBFBFD] text-[#1D1D1F]">
+		<div class="container mx-auto px-6 py-20 max-w-3xl">
 			
-			<!-- Déco visuelle style Apple -->
-			<div class="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-blue-50/50 rounded-full blur-[120px] translate-x-1/2 -translate-y-1/2"></div>
-			<div class="absolute bottom-0 left-0 -z-10 w-[400px] h-[400px] bg-indigo-50/50 rounded-full blur-[100px] -translate-x-1/2 translate-y-1/2"></div>
-		</section>
+			<header class="text-center mb-16 space-y-4">
+				<h1 class="text-5xl md:text-6xl font-extrabold tracking-tight">RGAA <span class="text-blue-600">Quest</span>.</h1>
+				<p class="text-xl md:text-2xl font-medium text-gray-500 max-w-2xl mx-auto">
+					Maîtrisez l'accessibilité par la pratique. Une expérience conçue pour tester vos limites RGAA.
+				</p>
+			</header>
 
-		<!-- Quiz Stream -->
-		<section class="px-6 pb-40">
-			<div class="container mx-auto max-w-3xl">
-				<div class="space-y-4">
-					{quizzes.map((quiz) => (
+			<div class="space-y-12">
+				{quizzes.map((quiz, index) => (
+					<div class="relative group">
+						<div class="absolute -left-12 top-0 hidden md:flex items-center justify-center w-8 h-8 rounded-full bg-blue-50 text-blue-400 font-bold text-sm border border-blue-100 group-hover:bg-blue-600 group-hover:text-white transition-all">
+							{index + 1}
+						</div>
 						<QuizCard {...quiz} />
-					))}
-				</div>
-
-				<!-- Coming Soon Indicator -->
-				<div class="mt-20 p-12 text-center bg-white/40 border border-dashed border-gray-200 rounded-[32px] backdrop-blur-sm">
-					<div class="inline-flex items-center space-x-3 mb-4">
-						<span class="relative flex h-3 w-3">
-							<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-							<span class="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
-						</span>
-						<span class="text-sm font-bold text-blue-600 uppercase tracking-widest">Forge en cours</span>
 					</div>
-					<h2 class="text-3xl font-bold mb-4 italic">Un déluge de questions arrive...</h2>
-					<p class="text-lg text-gray-500">Notre agent Data ✨ prépare 22 nouveaux défis pour parfaire votre certification.</p>
-				</div>
+				))}
 			</div>
-		</section>
 
-		<footer class="py-20 border-t border-gray-100/50 bg-white/50">
-			<div class="container mx-auto max-w-3xl px-6 text-center">
-				<p class="text-sm font-semibold text-gray-400">ISABELLE LAFONT — CODE & INCLUSION</p>
-			</div>
-		</footer>
+			<footer class="mt-24 text-center border-t border-gray-100 pt-12">
+				<div class="inline-flex items-center space-x-2 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">
+					<span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+					<span class="text-sm font-semibold">22 questions supplémentaires en cours de forge par Data ✨</span>
+				</div>
+				<p class="mt-8 text-gray-400 text-sm">Design & Inclusion par Isabelle Lafont.</p>
+			</footer>
+
+		</div>
 	</main>
 </Layout>
 
-<style>
-	@keyframes fade-in {
-		from { opacity: 0; transform: translateY(20px); }
-		to { opacity: 1; transform: translateY(0); }
+<style is:global>
+	/* Polissage style Apple pour les QuizCards */
+	.rgaa-challenger-card {
+		background: rgba(255, 255, 255, 0.8) !important;
+		backdrop-filter: blur(20px) !important;
+		border: 1px solid rgba(0, 0, 0, 0.05) !important;
+		border-radius: 28px !important;
+		padding: 40px !important;
+		box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04) !important;
+		transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease !important;
 	}
-	.animate-fade-in {
-		animation: fade-in 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+
+	.quiz-option {
+		background: #F5F5F7 !important;
+		border: none !important;
+		border-radius: 18px !important;
+		padding: 20px 24px !important;
+		font-weight: 600 !important;
+		color: #1D1D1F !important;
+		margin-bottom: 4px !important;
+	}
+
+	.quiz-option:hover {
+		background: #E8E8ED !important;
+		transform: scale(1.02);
+	}
+
+	.quiz-option:active {
+		transform: scale(0.98);
+	}
+
+	.quiz-feedback {
+		border-radius: 20px !important;
+		margin-top: 24px !important;
+		padding: 24px !important;
 	}
 </style>
