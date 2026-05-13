@@ -36,15 +36,26 @@ const quizzes = [
     explanation: "Le placeholder n'est pas suffisant car il disparaît dès la saisie. Un label visible est indispensable pour la mémoire de travail et la navigation vocale."
   },
   {
-    question: "Pour un tableau de données complexe avec plusieurs niveaux d'en-têtes, comment lie-t-on les cellules aux en-têtes ?",
+    question: "Pour un tableau de données complexe avec plusieurs niveaux d'en-têtes, quelle méthode est indispensable (Critère 1.6) ?",
     options: [
-      "Avec scope=\"col\" partout",
-      "Avec les attributs id et headers",
-      "Avec une balise <caption> descriptive",
-      "C'est impossible, il faut scinder le tableau"
+      "Utiliser scope=\"col\" sur tous les en-têtes",
+      "Utiliser le couple id / headers",
+      "Doubler le tableau en version texte",
+      "Utiliser aria-label sur chaque cellule"
     ],
     correctAnswer: 1,
-    explanation: "Les attributs id sur les <th> et headers sur les <td> sont obligatoires pour les relations complexes que scope ne peut pas gérer seul."
+    explanation: "Dès que le tableau possède des en-têtes qui ne s'appliquent pas à toute la ligne ou colonne, scope est insuffisant. id et headers permettent de lier précisément chaque cellule à ses parents."
+  },
+  {
+    question: "Quelle est la syntaxe correcte pour lier une cellule <td> à 3 en-têtes (th1, th2, th3) via l'attribut headers ?",
+    options: [
+      "headers=\"th1; th2; th3\"",
+      "headers=\"th1, th2, th3\"",
+      "headers=\"th1 th2 th3\" (espace simple)",
+      "headers=\"[th1][th2][th3]\""
+    ],
+    correctAnswer: 2,
+    explanation: "Les IDs dans l'attribut headers doivent être séparés par des ESPACES simples uniquement. Les virgules ou points-virgules rendent la relation invalide pour les lecteurs d'écran."
   }
 ];
 ---
