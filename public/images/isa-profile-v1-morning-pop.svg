@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" role="img" aria-label="Illustration stylisée du profil d'Isabelle — Développeuse Ruby on Rails experte RGAA">
+  <title>Isa — Profile Illustration</title>
+  <desc>Illustration stylisée Morning Pop / White &amp; Soft : figure féminine abstraite représentant Code, Accessibilité et Inclusion</desc>
+
+  <defs>
+    <!-- Soft radial glow -->
+    <radialGradient id="softGlow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#F0E6FA" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#F0E6FA" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Skin tone -->
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FDDDCB"/>
+      <stop offset="100%" stop-color="#F5C9B0"/>
+    </linearGradient>
+    <!-- Hair gradient -->
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4B8E8"/>
+      <stop offset="100%" stop-color="#B99AD8"/>
+    </linearGradient>
+    <!-- Top gradient -->
+    <linearGradient id="topGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#EAD4F5"/>
+      <stop offset="100%" stop-color="#D4B0ED"/>
+    </linearGradient>
+    <!-- Accent pill -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFB8C8"/>
+      <stop offset="100%" stop-color="#FFD4E0"/>
+    </linearGradient>
+    <!-- Shadow for soft depth -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="6" flood-color="#B89AD8" flood-opacity="0.18"/>
+    </filter>
+    <filter id="lighterShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="2" stdDeviation="4" flood-color="#B89AD8" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Soft ambient glow behind figure -->
+  <ellipse cx="200" cy="240" rx="160" ry="200" fill="url(#softGlow)"/>
+
+  <!-- === FLOATING MOTIFS (background layer) === -->
+
+  <!-- { } code brackets — top left -->
+  <g opacity="0.22" fill="none" stroke="#B89AD8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M62 95 C52 85, 52 115, 62 105" transform="rotate(-15, 62, 100)"/>
+    <path d="M78 100 C88 90, 88 120, 78 110"/>
+  </g>
+
+  <!-- { } code brackets — bottom right -->
+  <g opacity="0.22" fill="none" stroke="#B89AD8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M338 385 C348 375, 348 405, 338 395" transform="rotate(15, 338, 390)"/>
+    <path d="M322 390 C312 380, 312 410, 322 400"/>
+  </g>
+
+  <!-- Accessibility eye — right side -->
+  <g opacity="0.30" transform="translate(345, 165)">
+    <ellipse cx="0" cy="0" rx="16" ry="10" fill="none" stroke="#B89AD8" stroke-width="2"/>
+    <circle cx="0" cy="0" r="5" fill="#B89AD8" fill-opacity="0.5"/>
+    <line x1="-22" y1="0" x2="-16" y2="0" stroke="#B89AD8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="16" y1="0" x2="22" y2="0" stroke="#B89AD8" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Checkmark (RGAA valid) — left side -->
+  <g opacity="0.28" transform="translate(52, 290)">
+    <circle cx="0" cy="0" r="15" fill="none" stroke="#B89AD8" stroke-width="2"/>
+    <path d="M-7 0 L-2 5 L8 -6" fill="none" stroke="#B89AD8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- AI sparkle/star — top right -->
+  <g opacity="0.35" transform="translate(345, 85)">
+    <path d="M0-18 L4-4 L18 0 L4 4 L0 18 L-4 4 L-18 0 L-4-4 Z" fill="#FFB8C8" fill-opacity="0.6"/>
+    <circle cx="0" cy="0" r="3" fill="#FFB8C8"/>
+  </g>
+
+  <!-- Small sparkle — left -->
+  <g opacity="0.25" transform="translate(48, 175)">
+    <path d="M0-10 L2-2 L10 0 L2 2 L0 10 L-2 2 L-10 0 L-2-2 Z" fill="#C4A9E8"/>
+  </g>
+
+  <!-- Heart (inclusion) — bottom left -->
+  <g opacity="0.25" transform="translate(58, 390)">
+    <path d="M0 6 C-6-2, -16-2, -16 8 C-16 16, 0 26, 0 26 C0 26, 16 16, 16 8 C16-2, 6-2, 0 6Z" fill="#FFB8C8"/>
+  </g>
+
+  <!-- Small dots constellation -->
+  <circle cx="320" cy="255" r="3" fill="#D4B0ED" opacity="0.3"/>
+  <circle cx="335" cy="240" r="2" fill="#D4B0ED" opacity="0.25"/>
+  <circle cx="75" cy="220" r="2.5" fill="#D4B0ED" opacity="0.25"/>
+  <circle cx="90" cy="240" r="2" fill="#D4B0ED" opacity="0.2"/>
+
+  <!-- === FIGURE === -->
+
+  <!-- Hair shadow (offset ellipse for depth) -->
+  <ellipse cx="202" cy="158" rx="72" ry="82" fill="#C4A9E8" opacity="0.20"/>
+
+  <!-- Hair — main shape -->
+  <path d="M128 158
+           C128 100, 165 65, 200 65
+           C235 65, 272 100, 272 158
+           C272 178, 268 195, 260 208
+           C260 208, 258 185, 256 175
+           C250 165, 240 158, 230 155
+           C225 153, 215 150, 200 150
+           C185 150, 175 153, 170 155
+           C160 158, 150 165, 144 175
+           C142 185, 140 208, 140 208
+           C132 195, 128 178, 128 158Z"
+        fill="url(#hairGrad)" filter="url(#lighterShadow)"/>
+
+  <!-- Hair highlight strand -->
+  <path d="M158 90 C170 72, 200 65, 230 72"
+        fill="none" stroke="white" stroke-width="3" stroke-opacity="0.30" stroke-linecap="round"/>
+
+  <!-- Face -->
+  <ellipse cx="200" cy="185" rx="60" ry="66" fill="url(#skinGrad)" filter="url(#softShadow)"/>
+
+  <!-- Subtle blush -->
+  <ellipse cx="175" cy="202" rx="14" ry="8" fill="#FFB8C8" opacity="0.28"/>
+  <ellipse cx="225" cy="202" rx="14" ry="8" fill="#FFB8C8" opacity="0.28"/>
+
+  <!-- Eyebrows (soft, arched) -->
+  <path d="M166 173 Q175 167, 186 171" fill="none" stroke="#B89AD8" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+  <path d="M214 171 Q225 167, 234 173" fill="none" stroke="#B89AD8" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- Eyes (simple, confident) -->
+  <ellipse cx="176" cy="187" rx="9" ry="9" fill="white"/>
+  <ellipse cx="224" cy="187" rx="9" ry="9" fill="white"/>
+  <circle cx="177" cy="188" r="5.5" fill="#5A4A7A"/>
+  <circle cx="225" cy="188" r="5.5" fill="#5A4A7A"/>
+  <circle cx="178.5" cy="186.5" r="2" fill="white" opacity="0.8"/>
+  <circle cx="226.5" cy="186.5" r="2" fill="white" opacity="0.8"/>
+
+  <!-- Nose (minimal shadow) -->
+  <path d="M197 195 Q200 204, 203 195" fill="none" stroke="#E8A090" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Mouth (warm smile) -->
+  <path d="M186 218 Q200 228, 214 218" fill="none" stroke="#D4837A" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Glasses (wireframe — accessibility vibe) -->
+  <g opacity="0.55" stroke="#B89AD8" stroke-width="1.8" fill="none" stroke-linecap="round">
+    <ellipse cx="176" cy="187" rx="15" ry="13"/>
+    <ellipse cx="224" cy="187" rx="15" ry="13"/>
+    <path d="M191 187 L209 187"/>
+    <path d="M161 187 L150 182"/>
+    <path d="M239 187 L250 182"/>
+  </g>
+
+  <!-- Neck -->
+  <path d="M182 248 L182 275 Q182 285, 200 288 Q218 285, 218 275 L218 248" fill="url(#skinGrad)"/>
+
+  <!-- Top / shoulders — soft sweater shape -->
+  <path d="M100 370
+           Q120 330, 150 320
+           Q175 312, 200 310
+           Q225 312, 250 320
+           Q280 330, 300 370
+           L300 430 Q280 445, 200 445 Q120 445, 100 430 Z"
+        fill="url(#topGrad)" filter="url(#softShadow)"/>
+
+  <!-- Top neckline accent (soft V) -->
+  <path d="M175 315 Q200 340, 225 315" fill="none" stroke="white" stroke-width="2" stroke-opacity="0.45" stroke-linecap="round"/>
+
+  <!-- Top inner shadow/depth -->
+  <path d="M120 400 Q200 410, 280 400 L280 430 Q200 440, 120 430 Z" fill="#C4A0E0" opacity="0.15"/>
+
+  <!-- Small "code" pill badge on top -->
+  <rect x="255" y="295" width="52" height="22" rx="11" fill="url(#accentGrad)" opacity="0.85" filter="url(#lighterShadow)"/>
+  <text x="281" y="309" font-family="monospace" font-size="9" fill="#7A5A9A" text-anchor="middle" font-weight="600">&lt;/&gt;</text>
+
+  <!-- AI sparkle in front -->
+  <g opacity="0.70" transform="translate(305, 150)">
+    <path d="M0-12 L3-3 L12 0 L3 3 L0 12 L-3 3 L-12 0 L-3-3 Z" fill="#FFB8C8"/>
+    <circle cx="0" cy="0" r="2.5" fill="white" opacity="0.7"/>
+  </g>
+
+</svg>
