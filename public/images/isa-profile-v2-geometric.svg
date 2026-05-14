@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" role="img" aria-label="Illustration géométrique abstraite — Code, Accessibilité, Inclusion">
+  <title>Isa — Geometric Profile Illustration</title>
+  <desc>Variant abstracte et géométrique du portrait d'Isa — Code, Accessibilité, Inclusion — style Morning Pop / White &amp; Soft</desc>
+
+  <defs>
+    <radialGradient id="rg2-softGlow" cx="50%" cy="42%" r="50%">
+      <stop offset="0%" stop-color="#F0E6FA" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#F0E6FA" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rg2-hair" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DDD0F5"/>
+      <stop offset="100%" stop-color="#C4A9E8"/>
+    </linearGradient>
+    <linearGradient id="rg2-top" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#EDD4F8"/>
+      <stop offset="100%" stop-color="#D4B0ED"/>
+    </linearGradient>
+    <filter id="rg2-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="5" stdDeviation="7" flood-color="#B89AD8" flood-opacity="0.20"/>
+    </filter>
+    <filter id="rg2-lite" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="2" stdDeviation="4" flood-color="#B89AD8" flood-opacity="0.14"/>
+    </filter>
+    <!-- Clip for face area -->
+    <clipPath id="faceClip">
+      <ellipse cx="200" cy="190" rx="55" ry="61"/>
+    </clipPath>
+  </defs>
+
+  <!-- Ambient glow -->
+  <ellipse cx="200" cy="240" rx="155" ry="195" fill="url(#rg2-softGlow)"/>
+
+  <!-- === FLOATING MOTIFS — geometric constellation === -->
+
+  <!-- Accessibility focus ring — top left -->
+  <circle cx="72" cy="95" r="18" fill="none" stroke="#B89AD8" stroke-width="2" stroke-dasharray="6 4" opacity="0.35"/>
+  <circle cx="72" cy="95" r="6" fill="#B89AD8" opacity="0.35"/>
+
+  <!-- AI hexagon — top right -->
+  <polygon points="348,70 362,81 362,97 348,108 334,97 334,81" fill="none" stroke="#D4B0ED" stroke-width="2" opacity="0.40"/>
+
+  <!-- Code brackets — floating left -->
+  <g opacity="0.28" stroke="#B89AD8" stroke-width="2.5" stroke-linecap="round" fill="none">
+    <path d="M50 195 C40 185, 40 215, 50 205"/>
+    <path d="M66 200 C76 190, 76 220, 66 210"/>
+  </g>
+
+  <!-- Checkmark circle — floating right -->
+  <g opacity="0.30">
+    <circle cx="348" cy="270" r="16" fill="none" stroke="#B89AD8" stroke-width="2"/>
+    <path d="M339 270 L345 276 L357 263" fill="none" stroke="#B89AD8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Heart — bottom left -->
+  <path d="M55 385 C47 377, 35 377, 35 388 C35 398, 55 412, 55 412 C55 412, 75 398, 75 388 C75 377, 63 377, 55 385Z"
+        fill="#FFB8C8" opacity="0.28"/>
+
+  <!-- Small sparkle — top -->
+  <g opacity="0.30" transform="translate(200, 52)">
+    <path d="M0-14 L3.5-3.5 L14 0 L3.5 3.5 L0 14 L-3.5 3.5 L-14 0 L-3.5-3.5Z" fill="#C4A9E8"/>
+    <circle cx="0" cy="0" r="3" fill="white" opacity="0.5"/>
+  </g>
+
+  <!-- Dot constellation scattered -->
+  <circle cx="340" cy="185" r="3" fill="#D4B0ED" opacity="0.30"/>
+  <circle cx="60" cy="310" r="2.5" fill="#D4B0ED" opacity="0.25"/>
+  <circle cx="355" cy="340" r="2" fill="#D4B0ED" opacity="0.20"/>
+  <circle cx="50" cy="155" r="2" fill="#D4B0ED" opacity="0.20"/>
+
+  <!-- { } second pair — bottom right -->
+  <g opacity="0.22" stroke="#B89AD8" stroke-width="2" stroke-linecap="round" fill="none">
+    <path d="M330 390 C320 380, 320 405, 330 395"/>
+    <path d="M312 395 C302 385, 302 410, 312 400"/>
+  </g>
+
+  <!-- === GEOMETRIC FIGURE === -->
+
+  <!-- Hair — clean geometric shape -->
+  <path d="M130 185
+           C130 108, 162 68, 200 68
+           C238 68, 270 108, 270 185
+           C270 205, 266 225, 258 240
+           L256 215
+           C250 200, 238 188, 225 182
+           Q200 176, 175 182
+           C162 188, 150 200, 144 215
+           L142 240
+           C134 225, 130 205, 130 185Z"
+        fill="url(#rg2-hair)" filter="url(#rg2-lite)"/>
+
+  <!-- Hair highlight -->
+  <path d="M155 88 C175 68, 225 68, 245 88" fill="none" stroke="white" stroke-width="3" stroke-opacity="0.25" stroke-linecap="round"/>
+
+  <!-- Face — perfect ellipse -->
+  <ellipse cx="200" cy="198" rx="56" ry="62" fill="#FDDEC9" filter="url(#rg2-shadow)"/>
+
+  <!-- Blush geometric stamps -->
+  <rect x="155" y="206" width="20" height="12" rx="6" fill="#FFB8C8" opacity="0.25"/>
+  <rect x="225" y="206" width="20" height="12" rx="6" fill="#FFB8C8" opacity="0.25"/>
+
+  <!-- Geometric eyes — clean circles with sharp pupil -->
+  <circle cx="178" cy="198" r="11" fill="white" filter="url(#rg2-lite)"/>
+  <circle cx="222" cy="198" r="11" fill="white" filter="url(#rg2-lite)"/>
+  <circle cx="179" cy="199" r="6.5" fill="#5A4A7A"/>
+  <circle cx="223" cy="199" r="6.5" fill="#5A4A7A"/>
+  <circle cx="181" cy="197" r="2.5" fill="white" opacity="0.85"/>
+  <circle cx="225" cy="197" r="2.5" fill="white" opacity="0.85"/>
+
+  <!-- Brows — straight geometric lines -->
+  <line x1="163" y1="184" x2="190" y2="184" stroke="#B89AD8" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+  <line x1="210" y1="184" x2="237" y2="184" stroke="#B89AD8" stroke-width="2.5" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- Nose — minimal geometric L -->
+  <path d="M197 210 L200 220 L203 210" fill="none" stroke="#E8A090" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Mouth — clean arc -->
+  <path d="M182 234 Q200 246, 218 234" fill="none" stroke="#D4837A" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- RGAA glasses — clean thin lines -->
+  <g stroke="#B89AD8" stroke-width="1.8" fill="none" stroke-linecap="round" opacity="0.60">
+    <rect x="163" y="189" width="28" height="20" rx="10"/>
+    <rect x="209" y="189" width="28" height="20" rx="10"/>
+    <line x1="191" y1="199" x2="209" y2="199"/>
+    <line x1="163" y1="199" x2="155" y2="195"/>
+    <line x1="237" y1="199" x2="245" y2="195"/>
+  </g>
+
+  <!-- Neck -->
+  <rect x="185" y="258" width="30" height="32" rx="4" fill="#FDDEC9"/>
+
+  <!-- Geometric top / shoulders — angular cut -->
+  <path d="M92 430
+           Q100 380, 138 350
+           Q165 332, 200 330
+           Q235 332, 262 350
+           Q300 380, 308 430 Z"
+        fill="url(#rg2-top)" filter="url(#rg2-shadow)"/>
+
+  <!-- Neckline V detail -->
+  <path d="M172 332 Q200 358, 228 332" fill="none" stroke="white" stroke-width="2" stroke-opacity="0.40" stroke-linecap="round"/>
+
+  <!-- Shoulder inner shade -->
+  <path d="M115 415 Q200 425, 285 415 L285 430 Q200 440, 115 430 Z" fill="#C4A0E0" opacity="0.12"/>
+
+  <!-- Code pill — top right of figure -->
+  <rect x="252" y="280" width="56" height="24" rx="12" fill="#FFB8C8" opacity="0.75" filter="url(#rg2-lite)"/>
+  <text x="280" y="296" font-family="monospace" font-size="10" fill="#7A5A9A" text-anchor="middle" font-weight="700">&lt;/&gt;</text>
+
+  <!-- Focus ring (RGAA) — overlapping top right -->
+  <circle cx="310" cy="128" r="22" fill="none" stroke="#D4B0ED" stroke-width="2.5" stroke-dasharray="7 5" opacity="0.50"/>
+  <circle cx="310" cy="128" r="8" fill="#D4B0ED" opacity="0.30"/>
+  <circle cx="310" cy="128" r="3" fill="#D4B0ED" opacity="0.60"/>
+
+</svg>
