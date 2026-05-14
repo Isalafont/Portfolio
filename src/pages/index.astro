@@ -2,125 +2,168 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Isabelle Lafont — Experte Accessibilité & Développeuse Fullstack">
-  <div class="container">
+<Layout title="Isabelle Lafont — Développeuse & Experte RGAA">
+  <main>
+    <header>
+      <div class="hero-content">
+        <div class="kicker">Développeuse Ruby on Rails <span>&</span> Experte RGAA</div>
+        <h1>Isabelle Lafont</h1>
+        <p>
+          Je construis des produits numériques robustes, accessibles et pilotés par l'IA. 
+          Actuellement chez <strong>BetaGouv</strong> sur le projet <strong>DataPass</strong>.
+        </p>
 
-    <nav aria-label="Navigation principale">
-      <a href="/services/">Expertise</a>
-      <a href="/projects/">Projets</a>
-      <a href="/writing/">Blog</a>
-    </nav>
-
-    <section class="bio" aria-labelledby="bio-heading">
-      <h1 id="bio-heading">Je bâtis des produits web que tout le monde peut utiliser.</h1>
-
-      <p class="intro">
-        Je suis <strong>Isabelle Lafont</strong>. Développeuse Fullstack & Experte Accessibilité (RGAA). 
-        J’allie la puissance de Ruby on Rails à une rigueur inclusive pour créer des expériences numériques sans barrières.
-      </p>
-
-      <p>
-        Actuellement, je renforce l'accessibilité chez <a href="https://datapass.api.gouv.fr" target="_blank" rel="noopener">DataPass</a> (DINUM), 
-        tout en préparant ma certification RGAA (prévue le 22 mai).
-      </p>
-
-      <div class="action-box">
-        <h3>Codex ARIA</h3>
-        <p>Découvrez ma bibliothèque de patterns accessibles haute-performance.</p>
-        <a href="/projects/accessibilite/" class="cta-link">Consulter le Codex →</a>
+        <div class="contact-chips">
+          <span class="location" role="img" aria-label="Localisation">📍 Paris - Romainville</span>
+          <a href="mailto:isabelle@example.com" class="email">📧 Me contacter</a>
+        </div>
       </div>
 
-      <div class="links" role="list" aria-label="Liens externes">
-        <a href="https://github.com/Isalafont" target="_blank" rel="noopener" role="listitem">GitHub</a>
-        <span aria-hidden="true">·</span>
-        <a href="https://www.linkedin.com/in/isabelle-lafont/" target="_blank" rel="noopener" role="listitem">LinkedIn</a>
+      <div class="hero-visual">
+        <img src="/profile.svg" alt="Illustration stylisée d'Isabelle" class="profile-avatar" />
+      </div>
+    </header>
+
+    <section class="projects-preview">
+      <div class="card">
+        <h2>RGAA Run</h2>
+        <p>Challenge ton accessibilité avec notre nouveau module interactif.</p>
+        <a href="/projects/accessibilite">Relever le défi →</a>
       </div>
     </section>
 
     <footer>
-      <p>© 2026 Isabelle Lafont — Code & Inclusion.</p>
+      <div class="status">
+        <span class="dot"></span> Disponible pour de nouvelles missions AI-First
+      </div>
+      <div class="links">
+        <a href="https://github.com/Isalafont">GitHub</a>
+        <a href="https://twitter.com/Isalafont">Twitter</a>
+      </div>
+      <p class="credits">© 2026 Isabelle Lafont — Code & Inclusion.</p>
     </footer>
-
-  </div>
+  </main>
 </Layout>
 
 <style>
-  nav {
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  header {
     display: flex;
+    flex-direction: column-reverse;
     gap: 2rem;
     margin-bottom: 5rem;
   }
 
-  nav a {
-    text-decoration: none;
-    color: var(--muted);
+  @media (min-width: 768px) {
+    header {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  .hero-content {
+    flex: 1;
+  }
+
+  .hero-visual {
+    flex-shrink: 0;
+    width: 200px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 768px) {
+    .hero-visual {
+      margin: 0;
+    }
+  }
+
+  .profile-avatar {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(var(--shadow));
+  }
+
+  .kicker {
     font-size: 0.9rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 1rem;
   }
 
-  nav a:hover {
+  .kicker span {
     color: var(--accent);
   }
 
   h1 {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
     color: var(--text);
+    margin-bottom: 2rem;
     max-width: 15ch;
   }
 
-  .intro {
+  p {
     font-size: 1.25rem;
     line-height: 1.5;
     margin-bottom: 1.5rem;
   }
 
-  .action-box {
-    margin-top: 4rem;
-    padding: 2rem;
+  .projects-preview .card {
     background: white;
+    padding: 2rem;
     border-radius: 1rem;
     box-shadow: var(--shadow);
+    margin-top: 4rem;
   }
 
-  .action-box h3 {
+  .projects-preview h2 {
     margin-top: 0;
-    font-size: 1.25rem;
     margin-bottom: 0.5rem;
+    font-size: 1.25rem;
   }
 
-  .action-box p {
+  .projects-preview p {
     color: var(--muted);
     margin-bottom: 1.5rem;
   }
 
-  .cta-link {
+  .projects-preview a {
     font-weight: 700;
     text-decoration: none;
   }
 
-  .links {
-    margin-top: 3rem;
+  .contact-chips {
     display: flex;
-    gap: 0.5rem;
     align-items: center;
+    gap: 0.5rem;
+    margin-top: 3rem;
     font-size: 1rem;
   }
 
-  .links span { color: var(--muted); }
+  .contact-chips .location {
+    color: var(--muted);
+  }
 
-  .links a {
+  .contact-chips .email {
     text-decoration: none;
     color: var(--muted);
   }
 
-  .links a:hover { color: var(--accent); }
+  .contact-chips .email:hover {
+    color: var(--accent);
+  }
 
   footer {
     margin-top: 8rem;
-    font-size: 0.85rem;
     color: var(--muted);
+    font-size: 0.85rem;
   }
 </style>
